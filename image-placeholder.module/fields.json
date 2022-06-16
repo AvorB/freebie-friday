@@ -1,0 +1,105 @@
+[
+{
+"name" : "width",
+"label" : "Width",
+"required" : false,
+"locked" : false,
+"display" : "text",
+"step" : 1,
+"type" : "number",
+"min" : null,
+"max" : null,
+"inline_help_text": "",
+"help_text": "",
+"default" : 300},
+{
+"name" : "height",
+"label" : "Height",
+"required" : false,
+"locked" : false,
+"display" : "text",
+"step" : 1,
+"type" : "number",
+"min" : null,
+"max" : null,
+"inline_help_text": "if not specified, the height will be equal to the width",
+"help_text": "",
+"default" : 300 },
+{
+"name": "change_colors",
+"label": "Change colors",
+"required": false,
+"locked": false,
+"display": "toggle",
+"type": "boolean",
+"inline_help_text": "disable to have just grey colors",
+"help_text": "",
+"id": "change_colors",
+"default": true },
+{
+"name": "background_color",
+"label": "Background color",
+"required": false,
+"locked": false,
+"inline_help_text": "",
+"help_text": "",
+"hidden_subfields":{
+"opacity":true
+},
+"type": "color",
+"visibility": {
+      "controlling_field": "change_colors",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    },
+"default": {
+"color": "#020a10",
+"opacity": 100 } },
+{
+"name": "text_color",
+"label": "Text color",
+"required": false,
+"locked": false,
+"inline_help_text": "",
+"help_text": "",
+"hidden_subfields":{
+"opacity":true
+},
+"type": "color",
+"visibility": {
+      "controlling_field": "change_colors",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"},
+"default": {
+"color": "#ffffff",
+"opacity": 100 } },
+{
+"name": "custom_text",
+"label": "Custom text",
+"required": false,
+"locked": false,
+"type": "boolean",
+"inline_help_text": "",
+"help_text": "",
+"id":"custom_text",
+"default": false },
+{
+"name": "text",
+"label": "Custom text",
+"required": false,
+"locked": false,
+"validation_regex": "",
+"allow_new_line": false,
+"show_emoji_picker": false,
+"type": "text",
+"placeholder": "This module was made by Anton Bujanowski",
+"inline_help_text": "",
+"help_text": "",
+"default": "This module was made by Anton Bujanowski",
+"visibility": {
+      "controlling_field": "custom_text",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    }
+}
+]
