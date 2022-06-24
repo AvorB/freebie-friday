@@ -1,0 +1,91 @@
+{# configuration #}
+
+{% require_js %}
+<script>
+ // function from https://stackoverflow.com/a/5624139/3695983
+ function hexToRgb(hex) {
+	var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+	hex = hex.replace(shorthandRegex, function(m, r, g, b) {
+	 return r + r + g + g + b + b;
+	});
+
+	var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+	return result ? {
+	 r: parseInt(result[1], 16),
+	 g: parseInt(result[2], 16),
+	 b: parseInt(result[3], 16)
+	} : null;
+ }
+
+ // function from https://stackoverflow.com/a/9733420/3695983                     
+ function luminance(r, g, b) {
+	var a = [r, g, b].map(function (v) {
+	 v /= 255;
+	 return v <= 0.03928
+		? v / 12.92
+	 : Math.pow( (v + 0.055) / 1.055, 2.4 );
+	});
+	return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+ }
+
+ function calculateRatio() {
+
+	// read the colors and transform them into rgb format
+	const color1 = document.querySelector("#foreground").value;
+	const color2 = document.querySelector("#background").value;
+	const color1rgb = hexToRgb(color1);
+	const color2rgb = hexToRgb(color2);
+
+	// calculate the relative luminance
+	const color1luminance = luminance(color1rgb.r, color1rgb.g, color1rgb.b);
+	const color2luminance = luminance(color2rgb.r, color2rgb.g, color2rgb.b);
+
+	// calculate the color contrast ratio
+	const ratio = color1luminance > color2luminance 
+	? ((color2luminance + 0.05) / (color1luminance + 0.05))
+	: ((color1luminance + 0.05) / (color2luminance + 0.05));
+
+	return ratio;
+ }
+ // show results depending on WCAG requirements
+ document.querySelector("button#calculate").addEventListener("click", function() {
+	const ratio = calculateRatio();
+	// show results depending on WCAG requirements
+	const result = `
+<div class="resultCol ${ratio < 1/3 ? 'success' : 'failed' }">
+<span class="resultLabel">AA-{{ module.level_text }} {{ module.large_text }} {{ module.text }}</span><br>
+<strong>${ratio < 1/3 ? '{{ module.success_text }}' : '{{ module.failed_text }}' }</strong>
+ </div>
+	<div class="resultCol ${ratio < 1/4.5 ? 'success' : 'failed' }">
+				<span class="resultLabel">AA-{{ module.level_text }} {{ module.small_text }} {{ module.text }}</span><br>
+				<strong>${ratio < 1/4.5 ? '{{ module.success_text }}' : '{{ module.failed_text }}' }</strong>
+ </div>
+	<div class="resultCol ${ratio < 1/4.5 ? 'success' : 'failed' }">
+				<span class="resultLabel">AAA-{{ module.level_text }} {{ module.large_text }} {{ module.text }}</span><br>
+				<strong>${ratio < 1/4.5 ? '{{ module.success_text }}' : '{{ module.failed_text }}' }</strong>
+ </div>
+	<div class="resultCol ${ratio < 1/ 7? 'success' : 'failed' }">
+				<span class="resultLabel">AAA-{{ module.level_text }} {{ module.small_text }} {{ module.text }}</span><br>
+				<strong>${ratio < 1/7 ? '{{ module.success_text }}' : '{{ module.failed_text }}' }</strong>
+ </div>
+	`;
+document.querySelector("#result").innerHTML = result;
+});
+
+</script>
+{% end_require_js %}
+
+{# module #}
+<section class="contrastWrapper">
+ <div class="contrastInput">
+	<input type="text" id="foreground" value="#000000" />	
+	<label for="foreground">{{ module.foreground_label}}</label>
+ </div>
+ <div class="contrastInput">
+	<input type="text" id="background" value="#ffffff" />
+	<label for="background">{{ module.background_label}}</label>
+ </div>
+	 <button id="calculate">{{module.calculate_button_label}}</button>
+	
+	<div id="result" class="resultWrapper"></div>
+</section>‚

@@ -2,7 +2,7 @@
 {
 "name" : "width",
 "label" : "Width",
-"required" : false,
+"required" : true,
 "locked" : false,
 "display" : "text",
 "step" : 1,
@@ -11,7 +11,8 @@
 "max" : null,
 "inline_help_text": "",
 "help_text": "",
-"default" : 300},
+"default" : 300
+},
 {
 "name" : "height",
 "label" : "Height",

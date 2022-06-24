@@ -1,0 +1,16 @@
+{
+  "label": "Contrast Checker",
+  "css_assets": [],
+  "external_js": [],
+  "global": true,
+  "help_text": "",
+  "host_template_types": [
+    "PAGE",
+    "BLOG_POST"
+  ],
+  "js_assets": [],
+  "other_assets": [],
+  "smart_type": "NOT_SMART",
+  "tags": [],
+  "is_available_for_new_content": false
+}

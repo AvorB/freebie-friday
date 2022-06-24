@@ -1,13 +1,14 @@
 {# configuration #}
 {% set width        = module.width %}
 {% set height       = module.height %}
-{% if height <= 0 %}
+{% if height == 0 %}
     {% set dimension    = module.width %}
-{% elif width <= 0 %}
+{% elif width == 0 %}
     {% set dimension    = module.height %}
-{% elif height and width > 0 %}
+{% elif height > 0 and width > 0 %}
     {% set dimension    = module.width + 'x' + module.height %}
 {% endif %}
+
 
 {# module #}
 <img src="https://via.placeholder.com/{{dimension}}{% if module.change_colors %}/{{module.background_color.color|cut('#')}}/{{module.text_color.color|cut('#')}}{% endif %}{% if module.custom_text%}?{{module.custom_text|replace(' ', '+')}}{% endif %}" alt="placeholder">

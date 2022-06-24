@@ -1,0 +1,111 @@
+[
+  {
+    "allow_new_line": false,
+    "default": "Caclulate",
+    "display_width": null,
+    "id": "1b70eba9-12c6-b72d-1003-58b40d07f107",
+    "label": "Calculate button label",
+    "locked": true,
+    "name": "calculate_button_label",
+    "placeholder": "Calculate",
+    "required": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "validation_regex": ""
+  },
+  {
+    "allow_new_line": false,
+    "default": "Passed",
+    "display_width": null,
+    "id": "16ab3a47-ff3c-971a-b552-f3278671c016",
+    "label": "Success text",
+    "locked": true,
+    "name": "success_text",
+    "required": false,
+    "show_emoji_picker": true,
+    "type": "text",
+    "validation_regex": ""
+  },
+  {
+    "allow_new_line": false,
+    "default": "Failed",
+    "display_width": null,
+    "id": "19165997-9d7b-4f52-9f6c-100addf24a07",
+    "label": "Failed text",
+    "locked": true,
+    "name": "failed_text",
+    "required": false,
+    "show_emoji_picker": true,
+    "type": "text",
+    "validation_regex": ""
+  },
+  {
+    "allow_new_line": false,
+    "default": "level",
+    "display_width": null,
+    "id": "4344a7e2-ab9c-f38c-9c62-a1ea9a3a5206",
+    "label": "Level text",
+    "locked": true,
+    "name": "level_text",
+    "required": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "validation_regex": ""
+  },
+  {
+    "allow_new_line": false,
+    "default": "large",
+    "display_width": null,
+    "id": "c9b9253b-b97f-beda-c50f-aa8478aacf82",
+    "label": "Large text",
+    "locked": true,
+    "name": "large_text",
+    "required": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "validation_regex": ""
+  },
+  {
+    "allow_new_line": false,
+    "default": "small",
+    "display_width": null,
+    "id": "5edad453-3d2f-a97f-0169-6f6715bc6bc0",
+    "label": "small text",
+    "locked": true,
+    "name": "small_text",
+    "required": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "validation_regex": ""
+  },
+  {
+    "allow_new_line": false,
+    "default": "text",
+    "display_width": null,
+    "id": "17fe92aa-0dbe-9e3d-b7d0-6807cc9a3855",
+    "label": "text",
+    "locked": true,
+    "name": "text",
+    "required": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "validation_regex": ""
+  },
+  {
+    "type": "text",
+    "id": "c7100030-b538-8d81-037c-b1290ee27f59",
+    "validation_regex": "",
+    "label": "Foreground label",
+    "name": "foreground_label",
+    "default": "Foreground"
+  },
+  {
+    "type": "text",
+    "validation_regex": "",
+    "label": "Background label",
+    "name": "background_label",
+    "default": "Background",
+    "oldId": "c7100030-b538-8d81-037c-b1290ee27f59",
+    "id": "fc801e1f-21c1-9312-b772-15786b118f72"
+  }
+]

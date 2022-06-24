@@ -1,0 +1,88 @@
+.contrastWrapper{
+	display: flex;
+	flex-direction:column;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	align-content: flex-start;
+	justify-content:center;
+}
+
+.contrastWrapper input{
+	padding: .5rem 1rem;
+	font-size:1.125rem;
+	letter-spacing:.05rem;
+	border:0px;
+	border-radius:0px;
+	border-bottom:2px solid #020a10;
+	-webkit-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+	-o-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+}
+
+.contrastWrapper input:hover{
+	background-color:rgba(33,150,243,.2);
+}
+
+.contrastWrapper input:focus{
+	background-color:rgba(33,150,243,.1);åç
+	border-bottom: 2px solid rgb(33,150,243);
+	outline:none;
+}
+
+.contrastWrapper .contrastInput{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-content: flex-start;
+	align-items: flex-start;
+	justify-content: space-around;
+	margin-bottom:2rem;
+}
+
+.contrastWrapper .contrastInput label{
+	margin-top:.5rem;
+}
+
+.contrastWrapper button#calculate{
+	webkit-appearance: none;
+	appearance: none;
+	outline:none;
+	background-color: rgb(0,0,0);
+	color: rgb(255,255,255);
+	padding:.5rem 1.25rem;
+}
+.contrastWrapper .resultWrapper{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-content: flex-start;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.contrastWrapper .resultCol{
+	display: flex;
+	align-items: center;
+	align-content: center;
+	flex-direction: column;
+	justify-content: center;
+	padding: 1.25rem;
+	border-radius: 0.5rem;
+	margin: 1rem;
+}
+
+.contrastWrapper .success{
+	background: #3DD908
+}
+
+.contrastWrapper .failed{
+	background: #F3341B;
+	color:#fff;
+}
+
+@media screen and (max-width:480px){
+	.contrastWrapper .resultWrapper{
+		flex-direction:column;
+	}
+}
