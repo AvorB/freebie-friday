@@ -1,0 +1,78 @@
+{# hex to rgba #}
+{%- macro rgba_bg(hex_color, opacity) -%}
+   background-color: rgba({{ hex_color|convert_rgb }}, {{ opacity/100 }});
+{%- endmacro -%}
+
+{%- macro rgba_color(hex_color, opacity) -%}
+   color: rgba({{ hex_color|convert_rgb }}, {{ opacity/100 }});
+{%- endmacro -%}
+
+{# shadow #}
+{%- macro shadow(horizontal_position, vertical_position, blur, spread, color, opacity) -%}
+    -webkit-box-shadow: {{ horizontal_position }}px {{ vertical_position }}px {{ blur }}px {{ spread }}px rgba({{ color|convert_rgb }}, {{opacity/100}});
+       -moz-box-shadow: {{ horizontal_position }}px {{ vertical_position }}px {{ blur }}px {{ spread }}px rgba({{ color|convert_rgb }}, {{opacity/100}});
+            box-shadow: {{ horizontal_position }}px {{ vertical_position }}px {{ blur }}px {{ spread }}px rgba({{ color|convert_rgb }}, {{opacity/100}});
+    {%- endmacro -%}
+
+{# transition #}
+{%- macro transition(property, transition_time, easing) -%}
+    -webkit-transition: {{property}} {{ transition_time }} {{ easing }};
+       -moz-transition: {{property}} {{ transition_time }} {{ easing }};
+         -o-transition: {{property}} {{ transition_time }} {{ easing }};
+            transition: {{property}} {{ transition_time }} {{ easing }};
+    {%- endmacro -%}
+
+{# border radius #}
+{%- macro border_radius(border_radius, format) -%}
+ -webkit-border-radius: {{ border_radius }}{{format}};
+    -moz-border-radius: {{ border_radius }}{{format}};
+      -o-border-radius: {{ border_radius }}{{format}};
+         border-radius: {{ border_radius }}{{format}};
+{%- endmacro -%}
+
+{# linear gradient #}
+{%- macro linear_gradient(angle, color_1, position_1, color_2, position_2) -%}
+   background: {{ color_1 }};
+   background: -moz-linear-gradient({{ angle }}, {{ color_1 }} {{ position_1 }}%, {{ color_2 }} {{ position_2 }}%);
+   background: -webkit-linear-gradient({{ angle }}, {{ color_1 }} {{ position_1 }}%, {{ color_2 }} {{ position_2 }}%);
+   background: linear-gradient({{ angle }}, {{ color_1 }} {{ position_1 }}%, {{ color_2 }} {{ position_2 }}%);
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="{{color_1}}",endColorstr="{{color_2}}",GradientType=1); 
+{%- endmacro -%}
+
+{# radial gradient #}
+{%- macro radial_gradient(color_1, position_1, color_2, position_2) -%}
+   background: {{ color_1 }};
+   background: -moz-radial-gradient(circle, {{ color_1 }} {{ position_1 }}%, {{ color_2 }} {{ position_2 }}%);
+   background: -webkit-radial-gradient(circle, {{ color_1 }} {{ position_1 }}%, {{ color_2 }} {{ position_2 }}%);
+   background: radial-gradient(circle, {{ color_1 }} {{ position_1 }}%, {{ color_2 }} {{ position_2 }}%);
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="{{color_1}}",endColorstr="{{color_2}}",GradientType=1); 
+{%- endmacro -%}
+
+{# font generator #}
+{%- macro fonts(default_size, headline_family, headline_weight, text_family, text_weight, line_height, size_ratio) -%}
+body{ line-height:{{line_height}}; }
+
+h1,h2,h3,h4,h5,h6 {
+        font-family: {{ headline_family }};
+        font-weight: {{ headline_weight }};
+        line-height: {{ line_height }};
+}
+
+h1{ font-size: {{(size_ratio * size_ratio * size_ratio * size_ratio * size_ratio)|round(3)}}rem; }
+
+h2{ font-size: {{(size_ratio * size_ratio * size_ratio * size_ratio)|round(3)}}rem; }
+
+h3{ font-size: {{(size_ratio * size_ratio * size_ratio )|round(3)}}rem; }
+
+h4{ font-size: {{(size_ratio * size_ratio )|round(3)}}rem; }
+
+h5{ font-size: {{(size_ratio)|round(3)}}rem; }
+
+small, .small{ font-size: {{(1/size_ratio)|round(2)}}rem; }
+
+p{
+    font-family: {{ text_family }};
+    font-weight: {{ text_weight }};
+    line-height: {{ line_height }};
+}
+{% endmacro %}
