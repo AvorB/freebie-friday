@@ -1,0 +1,213 @@
+[ {
+  "id" : "headline_size",
+  "name" : "headline_size",
+  "display_width" : null,
+  "label" : "Headline size",
+  "help_text" : "",
+  "inline_help_text" : "",
+  "required" : false,
+  "locked" : false,
+  "display" : "radio",
+  "placeholder" : "",
+  "choices" : [ [ "h1", "Headline 1 (H1)" ], [ "h2", "Headline 2 (H2)" ], [ "h3", "Headline 3 (H3)" ] ],
+  "type" : "choice",
+  "default" : "h1"
+}, {
+  "id" : "headline_text",
+  "name" : "headline_text",
+  "display_width" : null,
+  "label" : "Headline",
+  "help_text" : "",
+  "inline_help_text" : "",
+  "required" : true,
+  "locked" : false,
+  "validation_regex" : "",
+  "placeholder" : "A catchy headline",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "Makeing the web"
+}, {
+  "id" : "subline",
+  "name" : "subline",
+  "display_width" : null,
+  "label" : "Subline",
+  "help_text" : "",
+  "inline_help_text" : "",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "placeholder" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : " a better looking place since 2008"
+}, {
+  "id" : "styles",
+  "name" : "styles",
+  "display_width" : null,
+  "label" : "Styles",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "styles.background_image",
+    "name" : "background_image",
+    "display_width" : null,
+    "label" : "Background Image",
+    "help_text" : "",
+    "inline_help_text" : "",
+    "required" : false,
+    "locked" : false,
+    "type" : "backgroundimage",
+    "default" : {
+      "src" : "https://via.placeholder.com/1920x668/020a10/2196f3?text=1920px*668px",
+      "background_position" : "MIDDLE_CENTER",
+      "background_size" : "cover"
+    }
+  }, {
+    "id" : "styles.text_color",
+    "name" : "text_color",
+    "display_width" : null,
+    "label" : "Text color",
+    "help_text" : "",
+    "inline_help_text" : "",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "default" : {
+      "color" : "#ffffff",
+      "opacity" : 100
+    }
+  }, {
+    "id" : "465bb8a8-71d4-0dfa-0a00-eb029f8fd360",
+    "name" : "shine_settings",
+    "display_width" : null,
+    "label" : "Shine settings",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "styles.shadow_color",
+      "name" : "shadow_color",
+      "display_width" : null,
+      "label" : "Shadow color",
+      "help_text" : "",
+      "inline_help_text" : "",
+      "required" : false,
+      "locked" : false,
+      "type" : "color",
+      "default" : {
+        "color" : "#219653",
+        "opacity" : 16
+      }
+    }, {
+      "id" : "e05ed5bb-9cad-21c7-7a43-7751dcc94964",
+      "name" : "shadow_steps",
+      "display_width" : null,
+      "label" : "Shadow steps",
+      "help_text" : "The number of steps drawn in each shadow",
+      "required" : false,
+      "locked" : false,
+      "display" : "slider",
+      "min" : 1,
+      "max" : 10,
+      "step" : 1,
+      "type" : "number",
+      "default" : 7
+    }, {
+      "id" : "2b8d7df4-80d9-17df-eacd-52cda96c4cbf",
+      "name" : "offset",
+      "display_width" : null,
+      "label" : "Offset",
+      "help_text" : "Larger offsets create longer shadows",
+      "required" : false,
+      "locked" : false,
+      "display" : "slider",
+      "min" : 1,
+      "max" : 10,
+      "step" : 0.01,
+      "type" : "number",
+      "default" : 7
+    }, {
+      "id" : "981c60ec-326e-9dbe-e857-11daeab6c3df",
+      "name" : "offset_pow",
+      "display_width" : null,
+      "label" : "Offset Pow",
+      "help_text" : "Larger offsets create longer shadows",
+      "required" : false,
+      "locked" : false,
+      "display" : "slider",
+      "min" : 0,
+      "max" : 4,
+      "step" : 0.1,
+      "type" : "number",
+      "default" : 1.8
+    }, {
+      "id" : "c4d1c2d8-8746-c04a-d137-2a3ca14e5636",
+      "name" : "blur",
+      "display_width" : null,
+      "label" : "Blur",
+      "help_text" : "The strength of the shadow blur.",
+      "required" : false,
+      "locked" : false,
+      "display" : "slider",
+      "min" : 0,
+      "max" : 128,
+      "step" : 1,
+      "type" : "number",
+      "default" : 40
+    }, {
+      "id" : "a04f2d4c-09dc-f344-f95e-524415c396bb",
+      "name" : "blur_pow",
+      "display_width" : null,
+      "label" : "Blur Pow",
+      "help_text" : "The exponent applied to each step's blur (1.0 = linear blur).",
+      "required" : false,
+      "locked" : false,
+      "display" : "slider",
+      "min" : 0,
+      "max" : 4,
+      "step" : 0.01,
+      "type" : "number",
+      "default" : 2
+    } ],
+    "tab" : "STYLE",
+    "expanded" : false,
+    "type" : "group",
+    "default" : {
+      "shadow_color" : {
+        "color" : "#219653",
+        "opacity" : 16
+      },
+      "shadow_steps" : 7,
+      "offset" : 7,
+      "offset_pow" : 1.8,
+      "blur" : 40,
+      "blur_pow" : 2
+    }
+  } ],
+  "tab" : "STYLE",
+  "expanded" : false,
+  "type" : "group",
+  "default" : {
+    "background_image" : {
+      "src" : "https://via.placeholder.com/1920x668/020a10/2196f3?text=1920px*668px",
+      "background_position" : "MIDDLE_CENTER",
+      "background_size" : "cover"
+    },
+    "text_color" : {
+      "color" : "#ffffff",
+      "opacity" : 100
+    },
+    "shine_settings" : {
+      "shadow_color" : {
+        "color" : "#219653",
+        "opacity" : 16
+      },
+      "shadow_steps" : 7,
+      "offset" : 7,
+      "offset_pow" : 1.8,
+      "blur" : 40,
+      "blur_pow" : 2
+    }
+  }
+} ]

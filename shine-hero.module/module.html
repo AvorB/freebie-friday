@@ -1,0 +1,68 @@
+{# start design #}
+{% require_css %}
+<style>
+	{% scope_css %}
+	.abHero{
+		display: flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		align-content: center;
+		justify-content: center;
+		align-items: center;
+		width:100vw;
+		height:41.75rem;
+		padding:10rem 0;
+		{{module.styles.background_image.css}}
+	}
+	.abHero h1{
+		color:rgba({{module.styles.text_color.color|convert_rgb}}, {{module.styles.text_color.opacity/100}});
+		font-size:4rem;
+		line-height:135%;
+	}
+	.abHero .content{
+		text-align:center;
+	}
+	.abHero .subline{
+		font-size:1.5rem;
+		color:rgba({{module.styles.text_color.color|convert_rgb}}, {{module.styles.text_color.opacity/100}});
+	}
+	{% end_scope_css %}
+</style>
+{% end_require_css %}
+{# end design #}
+
+{# start shine config #}
+{% require_js %}
+<script>
+	var shine = new Shine(document.getElementById('shine-text'));
+
+	window.addEventListener('mousemove', function(event) {
+		shine.light.position.x = event.clientX;
+		shine.light.position.y = event.clientY;
+		shine.draw();
+	}, false);
+
+	shine.config.numSteps = {{ module.styles.shine_settings.shadow_steps}};
+	shine.config.offset = {{ module.styles.shine_settings.offset}};
+	shine.config.offsetPow = {{ module.styles.shine_settings.offset_pow}};
+	shine.config.opacity = {{module.styles.shine_settings.shadow_color.opacity/100}};
+	shine.config.blur = {{ module.styles.shine_settings.blur}};
+	shine.config.blurPow = {{ module.styles.shine_settings.blur_pow}};
+	shine.config.shadowRGB = new shinejs.Color({{ module.styles.shine_settings.shadow_color.color|convert_rgb}});
+	shine.draw(); 
+</script>
+{% end_require_js %}
+{# end shine config #}
+
+{# start module #}
+<div class="abHero">
+	<div class="content">
+		<{{ module.headline_size}} id="shine-text">{{module.headline_text}}</{{ module.headline_size}}>
+			{% unless module.subline == "" %}
+			<p class="subline">{{module.subline}}</p>
+	{% endunless  %}
+
+</div>
+
+</div>
+{# end module #}
