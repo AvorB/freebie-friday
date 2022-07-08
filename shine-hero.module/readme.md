@@ -3,7 +3,7 @@
 
 <h2>Important note</h2>
 <strong> Don't make the headline to long - otherwise there will be high performance issues</strong>
-For better performance create a seperate JS file, cut/paste everything from the module.js into it and link the JS file in the module.
+<p>For better performance create a seperate JS file, cut/paste everything from the module.js into it and link the JS file in the module.</p>
 
 <h2>Usage</h2>
 All design related settings can be found in the Style-tab.
