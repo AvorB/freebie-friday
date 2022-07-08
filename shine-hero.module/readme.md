@@ -11,6 +11,7 @@ You can:
 <ul>
 <li>set a background image (not recommended for best looks)</li>
 <li>Define a headline & subline</li>
+<li>Customize shadow settings</li>
 </ul>
 
 <p> It's an implementation of <a href="https://github.com/bigspaceship/shine.js">BigSpaceShip shine.js</a> for HubSpot.</p>
