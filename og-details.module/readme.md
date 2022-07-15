@@ -1,7 +1,7 @@
 <h1>OG Details</h1>
 <p>This module will give you the ability to add/overwrite OG informations on pages, blog listing and blog posts.</p>
 <h2>"Installation"</h2>
-<p>The module contains jQuery scripts which are automatically appended right before the <code></body></code>-tag. All the overwrites are then appended before the <code></head></code>-tag. So there shouldn't be performance issues.</p>
+<p>The module contains jQuery scripts which are automatically appended right before the </body>-tag. All the overwrites are then appended before the </head>-tag. So there shouldn't be performance issues.</p>
 <h3>Themes</h3>
 <p><strong>Adding this module globally into every Page</strong></p>
 <p>If you're working with themes - open the design-tools, find your theme, open the base.html, layout.html or similar and place the module snippet into it.</p>
