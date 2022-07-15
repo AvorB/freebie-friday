@@ -1,0 +1,66 @@
+{### Description ###}
+{# 
+Drop this module into your template and you're ready to go. 
+
+A few things to keep in mind:
+- You need at least jQuery 1.4 enabled( look into your theme or HubSpot settings). For the unlikely case you don't have it, you can enable it in the module. 
+- If you leave one of the values empty, the module will take the default values from HubSpot. For more inforation, visit https://developers.hubspot.com/docs/cms/hubl/variables
+- The description is limited to 200 characters
+
+#}
+
+{# start load jQuery #}
+{% if module.enable_jquery %}
+    {{ require_js("https://code.jquery.com/jquery-3.6.0.min.js", "head" ) }}
+{% endif %}
+{# end load jQuery #}
+
+{# start overwrites #}
+{% require_js %}
+<script>
+    {# start og title overwrite #}
+    {% unless module.og_title == "" %}
+        $('head').append('<meta property="og:title" content="{{ module.og_title }}" >');
+        {% else %}
+        $('head').append('<meta property="og:title" content="{{ page_meta.html_title }}" >');
+    {% endunless %}
+    {# end og title overwrite #}
+    
+    {# start og description overwrite #}
+    {% unless module.og_description == "" %}
+        $('head').append('<meta property="og:description" content="{{ module.og_description|truncate(200,true, "...") }}" >');
+        {% else %}
+        $('head').append('<meta property="og:description" content="{{ page_meta.meta_description|truncate(200,true, "...") }}" >');
+    {% endunless %}
+    {# end og description overwrite #}
+    
+    {# start og image overwrite #}
+    {% unless module.og_image_source == "featured_image" %}
+        $('head').append('<meta property="og:image" content="{{ resize_image_url( module.og_image.src , 0, 0, 1200) }}" >');
+        $('head').append('<meta property="og:image:alt" content="{{ module.og_image.alt }}" >');
+        $('head').append('<meta property="og:image:width" content="{{ module.og_image.width }}" >');
+        $('head').append('<meta property="og:image:height" content="{{ module.og_image.height }}" >');
+    {% else %}
+        $('head').append('<meta property="og:image" content="{{ content.featured_image }}" >');
+        $('head').append('<meta property="og:image:alt" content="{{ content.featured_image_alt_text }}" >');
+    {% endunless %}
+    {# end og image overwrite #}
+
+    {# start og url overwrite #}
+    {% unless module.og_url == "" %}
+        $('head').append('<meta property="og:url" content="{{ module.og_url }}" >');
+        {% else %}
+        $('head').append('<meta property="og:url" content="{{ content.absolute_url }}" >');
+    {% endunless %}
+    {# end og url overwrite #}
+    
+    {# start og site name overwrite #}
+    {% unless module.og_site_name == "" %}
+        $('head').append('<meta property="og:site_name" content="{{ module.og_site_name }}" >');
+        {% else %}
+        $('head').append('<meta property="og:site_name" content="{{ site_settings.company_name }}" >');
+    {% endunless %}
+    {# end og site name overwrite #}
+</script>
+{% end_require_js %}
+{# end overwrites #}

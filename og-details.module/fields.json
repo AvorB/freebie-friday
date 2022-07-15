@@ -1,0 +1,113 @@
+[
+  {
+    "default": true,
+    "display": "toggle",
+    "display_width": null,
+    "help_text": "Enable this only if you don't have jQuery already loaded on your site",
+    "id": "enable_jquery",
+    "inline_help_text": "",
+    "label": "enable jQuery",
+    "locked": false,
+    "name": "enable_jquery",
+    "required": false,
+    "type": "boolean"
+  },
+  {
+    "allow_new_line": false,
+    "default": "",
+    "display_width": null,
+    "help_text": "",
+    "id": "og_title",
+    "inline_help_text": "",
+    "label": "OG Title",
+    "locked": false,
+    "name": "og_title",
+    "placeholder": "",
+    "required": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "validation_regex": ""
+  },
+  {
+    "allow_new_line": false,
+    "default": "This is a placeholder for og description text",
+    "display_width": null,
+    "help_text": "",
+    "id": "og_description",
+    "inline_help_text": "Limited to 200 chars. ",
+    "label": "OG Description",
+    "locked": false,
+    "name": "og_description",
+    "placeholder": "",
+    "required": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "validation_regex": ""
+  },
+  {
+    "allow_new_line": false,
+    "display_width": null,
+    "id": "de36d86c-7d4e-13ca-9c3a-fd66e1b61403",
+    "label": "OG Site name",
+    "locked": false,
+    "name": "og_site_name",
+    "required": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "validation_regex": "",
+    "default": ""
+  },
+  {
+    "type": "choice",
+    "id": "982103b6-adfd-d72c-6362-bc49ec7b0822",
+    "display": "radio",
+    "choices": [
+      [
+        "featured_image",
+        "Page Featured Image"
+      ],
+      [
+        "custom",
+        "Custom"
+      ]
+    ],
+    "label": "OG Image source",
+    "name": "og_image_source",
+    "default": "featured_image"
+  },
+  {
+    "default": {
+      "src": ""
+    },
+    "display_width": null,
+    "help_text": "For best result, use an image with 1.91:1 side-ratio. E.g. 1200pxx630px",
+    "id": "og_image",
+    "inline_help_text": "",
+    "label": "OG image",
+    "locked": false,
+    "name": "og_image",
+    "required": false,
+    "resizable": false,
+    "responsive": false,
+    "show_loading": false,
+    "type": "image",
+    "visibility": {
+      "controlling_field": "982103b6-adfd-d72c-6362-bc49ec7b0822",
+      "operator": "EQUAL",
+      "controlling_value_regex": "custom"
+    }
+  },
+  {
+    "allow_new_line": false,
+    "display_width": null,
+    "id": "e2acfe9d-77a2-6f4f-f260-df109f34de9c",
+    "label": "OG url",
+    "locked": false,
+    "name": "og_url",
+    "required": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "validation_regex": "",
+    "default": ""
+  }
+]
