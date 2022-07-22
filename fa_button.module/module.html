@@ -1,0 +1,133 @@
+{# Usage 
+This module includes by default the FontAwesome 6.1.1 Free Pack(Solid & Brands) but you've got the option to paste a the link to your pro licence if you got one. 
+Simply paste the fa-name (e.g. "fa-home") of your desired icon and you're good to go. 
+There are individual settings for every button state(Default, Hover, Focus) to give it more individual styling options. 
+#}
+
+{# start macros #}
+
+{# linear gradient #}
+{%- macro linear_gradient(color_1, color_2, css) -%}
+   background: {{ color_1 }};
+   background: -moz-{{ css }};
+   background: -webkit-{{ css }};
+   background:{{ css }};
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="{{ color_1 }}",endColorstr="{{ color_2 }}",GradientType=1); 
+{%- endmacro -%}
+
+{# transition #}
+{%- macro button_transition(time) -%}
+-webkit-transition: all {{ time }}s ease-in-out;
+-moz-transition: all {{ time }}s ease-in-out;
+-o-transition: all {{ time }}s ease-in-out;
+transition: all {{ time }}s ease-in-out;
+{%- endmacro -%}
+{# end macros #}
+
+{# start configuration #}
+{% require_css %}
+{%- if module.font_awesome_settings.version == "pro" -%}
+    <link rel="stylesheet" href="{{ module.font_awesome_settings.custom_library }}" crossorigin="anonymous" referrerpolicy="no-referrer" />{# place custom URL #}
+{% else %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" /> {# use default URL #}
+{%- endif -%}
+
+<style>
+	.abFaButton.{{ name }}{
+		{%- if module.style.default.spacing_style == "rem" %}
+		padding:{{ module.style.default.vertical_padding }}rem {{ module.style.default.horizontal_padding }}rem;
+		{% else %}
+		margin: {{ module.style.default.spacing.margin.top.value }}{{ module.style.default.spacing.margin.top.units }} 0 {{ module.style.default.spacing.margin.bottom.value }}{{ module.style.default.spacing.margin.bottom.units }};
+		padding:{{ module.style.default.spacing.padding.top.value }}{{ module.style.default.spacing.padding.top.units }} {{ module.style.default.spacing.padding.right.value }}{{ module.style.default.spacing.padding.right.units }} {{ module.style.default.spacing.padding.bottom.value }}{{ module.style.default.spacing.padding.bottom.units }} {{ module.style.default.spacing.padding.left.value }}{{ module.style.default.spacing.padding.left.units }};
+		{%- endif -%}
+		color: {{ module.style.default.text_color.css }};
+		{%- if module.style.default.background_type == "gradient" -%}
+		{{linear_gradient('{{ module.style.default.gradient.colors[1].color }}', '{{ module.style.default.gradient.colors[2].color }}', '{{ module.style.default.gradient.css }}')}}
+		{% else %}
+		background-color: {{ module.style.default.background_color.css }};
+		{% endif %}
+		{%- unless module.style.transition_time == "0" -%}
+		{{ button_transition('{{ module.style.transition_time }}') }}
+		{%- endunless %}
+	}
+	
+	.abFaButton.{{ name }}:hover{
+		{%- if module.style.hover.spacing_style == "rem" %}
+		padding:{{ module.style.hover.vertical_padding }}rem {{ module.style.hover.horizontal_padding }}rem;
+		{% else %}
+		margin: {{ module.style.hover.spacing.margin.top.value }}{{ module.style.hover.spacing.margin.top.units }} 0 {{ module.style.hover.spacing.margin.bottom.value }}{{ module.style.hover.spacing.margin.bottom.units }};
+		padding:{{ module.style.hover.spacing.padding.top.value }}{{ module.style.hover.spacing.padding.top.units }} {{ module.style.hover.spacing.padding.right.value }}{{ module.style.hover.spacing.padding.right.units }} {{ module.style.hover.spacing.padding.bottom.value }}{{ module.style.hover.spacing.padding.bottom.units }} {{ module.style.hover.spacing.padding.left.value }}{{ module.style.hover.spacing.padding.left.units }};
+		{%- endif -%}
+		color: {{ module.style.hover.text_color.css }};
+		{%- if module.style.hover.background_type == "gradient" -%}
+		{{linear_gradient('{{ module.style.hover.gradient.colors[1].color }}', '{{ module.style.hover.gradient.colors[2].color }}', '{{ module.style.hover.gradient.css }}')}}
+		{% else %}
+		background-color: {{ module.style.hover.background_color.css }};
+		{% endif %}
+	}
+	
+	.abFaButton.{{ name }}:focus{
+		{% if module.style.hover.spacing_style == "rem" -%}
+		padding:{{ module.style.hover.vertical_padding }}rem {{ module.style.hover.horizontal_padding }}rem;
+		{% else %}
+		margin: {{ module.style.hover.spacing.margin.top.value }}{{ module.style.hover.spacing.margin.top.units }} 0 {{ module.style.hover.spacing.margin.bottom.value }}{{ module.style.hover.spacing.margin.bottom.units }};
+		padding:{{ module.style.hover.spacing.padding.top.value }}{{ module.style.hover.spacing.padding.top.units }} {{ module.style.hover.spacing.padding.right.value }}{{ module.style.hover.spacing.padding.right.units }} {{ module.style.hover.spacing.padding.bottom.value }}{{ module.style.hover.spacing.padding.bottom.units }} {{ module.style.hover.spacing.padding.left.value }}{{ module.style.hover.spacing.padding.left.units }};
+		{%- endif -%}
+		color: {{ module.style.hover.text_color.css }};
+		{%- if module.style.hover.background_type == "gradient" -%}
+		{{linear_gradient('{{ module.style.hover.gradient.colors[1].color }}', '{{ module.style.hover.gradient.colors[2].color }}', '{{ module.style.hover.gradient.css }}')}}
+		{% else %}
+		background-color: {{ module.style.hover.background_color.css }};
+		{% endif %}
+	}
+	
+	.abFaButton.{{ name }} i{
+		color: {{ module.style.default.icon_color.css }};
+		{% if module.font_awesome_settings.icon_position == "left" -%}
+		padding-right: {{ module.style.default.icon_spacing }}rem;
+		{% else %}
+		padding-left: {{ module.style.default.icon_spacing }}rem;
+		{%- endif -%}
+	}
+	
+	.abFaButton.{{ name }}:hover i{
+		color: {{ module.style.hover.icon_color.css }};
+		{% if module.font_awesome_settings.icon_position == "left" -%}
+		padding-right: {{ module.style.hover.icon_spacing }}rem;
+		{% else %}
+		padding-left: {{ module.style.hover.icon_spacing }}rem;
+		{%- endif -%}
+	}
+	
+	.abFaButton.{{ name }}:focus i{
+		color: {{ module.style.focus.icon_color.css }}
+		{% if module.font_awesome_settings.icon_position == "left" -%}
+		padding-right: {{ module.style.focus.icon_spacing }}rem;
+		{% else %}
+		padding-left: {{ module.style.focus.icon_spacing }}rem;
+		{%- endif -%}
+	}
+</style>
+{% end_require_css %}
+{# end configuration #}
+
+{# start module #}
+{# start URL #}
+{% set href = module.url.url.href %}
+{% if module.url.url.type is equalto "EMAIL_ADDRESS" %}
+	{% set href = "mailto:" + href %}
+{% endif %}
+{# end URL #}
+
+<a href="{{ href }}" class="abFaButton {{ name }}"{% if module.url.open_in_new_tab %} target="_blank"{% endif %}{% if module.url.rel %} rel="{{ module.url.rel }}"{% endif %} aria-label="{{ module.button_label }}">
+	{%- if module.font_awesome_settings.icon_position == "left" -%}
+	{# start left icon #}
+	    <i class="{% unless module.font_awesome_settings.version == "pro" %}{% unless module.font_awesome_settings.is_brand_icon %}fas{% else %}fab{% endunless %}{% else %}{{ module.font_awesome_settings.icon_weight}}{% endunless %} {{ module.font_awesome_settings.icon}} icon"></i>{{ module.button_label }}
+	{# end left icon #}
+	{% else %}
+	{# start right icon #}
+	    {{ module.button_label }} <i class="{% unless module.font_awesome_settings.version == "pro" %}{% unless module.font_awesome_settings.is_brand_icon %}fas{% else %}fab{% endunless %}{% else %}{{ module.font_awesome_settings.icon_weight}}{% endunless %} {{ module.font_awesome_settings.icon}} icon"></i>
+	{# end right icon #}
+	{%- endif -%}
+</a>
+{# end module #}

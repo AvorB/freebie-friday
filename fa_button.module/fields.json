@@ -1,0 +1,1155 @@
+[
+  {
+    "type": "link",
+    "id": "ffbde277-b4c6-346e-d873-e98b67d759e1",
+    "default": {
+      "url": {
+        "type": "EXTERNAL",
+        "href": "https://antonbujanowski.de",
+        "content_id": null
+      },
+      "open_in_new_tab": true,
+      "no_follow": false
+    },
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG"
+    ],
+    "label": "URL",
+    "name": "url",
+    "required": true
+  },
+  {
+    "type": "text",
+    "id": "0d687cf2-572e-b8ca-8fe6-fc50df8080c9",
+    "validation_regex": "",
+    "label": "Button label",
+    "name": "button_label",
+    "default": "Click me",
+    "required": false
+  },
+  {
+    "type": "group",
+    "id": "f608dc99-1c19-df88-256b-059ea95622f3",
+    "label": "Font Awesome settings",
+    "children": [
+      {
+        "type": "choice",
+        "id": "f30fd2d7-bb65-a272-21ab-7b409f09bc67",
+        "display": "radio",
+        "choices": [
+          [
+            "free",
+            "Free"
+          ],
+          [
+            "pro",
+            "Pro & Custom"
+          ]
+        ],
+        "label": "Version",
+        "name": "version"
+      },
+      {
+        "type": "text",
+        "id": "2e75094f-27f0-002b-714a-221fe6858a78",
+        "validation_regex": "",
+        "label": "custom library",
+        "name": "custom_library",
+        "visibility": {
+          "controlling_field": "f30fd2d7-bb65-a272-21ab-7b409f09bc67",
+          "operator": "EQUAL",
+          "controlling_value_regex": "pro"
+        },
+        "help_text": "Paste your FontAwesome URL here. Recomended ",
+        "default": "",
+        "placeholder": "https://domain.com/my-library"
+      },
+      {
+        "type": "choice",
+        "id": "00b4574a-8f5a-271d-9b8f-e2a9456d0c78",
+        "display": "select",
+        "choices": [
+          [
+            "fat",
+            "Thin"
+          ],
+          [
+            "fal",
+            "Light"
+          ],
+          [
+            "far",
+            "Regular"
+          ],
+          [
+            "fas",
+            "Solid"
+          ],
+          [
+            "fad",
+            "Duotone"
+          ]
+        ],
+        "label": "Icon weight",
+        "name": "icon_weight",
+        "default": "fal",
+        "visibility": {
+          "controlling_field": "f30fd2d7-bb65-a272-21ab-7b409f09bc67",
+          "operator": "EQUAL",
+          "controlling_value_regex": "pro"
+        }
+      },
+      {
+        "type": "choice",
+        "id": "6e5b641d-3647-1bc4-ab32-9a8e1be05d91",
+        "display": "radio",
+        "choices": [
+          [
+            "left",
+            "Left"
+          ],
+          [
+            "right",
+            "Right"
+          ]
+        ],
+        "label": "Icon position",
+        "name": "icon_position"
+      },
+      {
+        "type": "text",
+        "id": "bcdf2d9d-74b9-06c2-93ff-259fb8a97951",
+        "validation_regex": "",
+        "label": "Icon",
+        "name": "icon",
+        "default": "fa-home",
+        "placeholder": "fa-home"
+      },
+      {
+        "type": "boolean",
+        "id": "f37c07c2-7ef1-d6dc-d7e5-59e29826ff4b",
+        "default": false,
+        "display": "toggle",
+        "label": "is Brand icon",
+        "name": "is_brand_icon"
+      }
+    ],
+    "name": "font_awesome_settings",
+    "default": {
+      "custom_library": "",
+      "icon_weight": "fal",
+      "include_brand_icons": false,
+      "icon": "fa-home",
+      "is_brand_icon": false
+    }
+  },
+  {
+    "type": "group",
+    "isNew": false,
+    "name": "style",
+    "label": "Style",
+    "tab": "STYLE",
+    "id": "a5849107-9c37-4f18-c4db-7dad691abf45",
+    "children": [
+      {
+        "type": "number",
+        "id": "86f2ce5c-595e-057d-2e6c-fb7e64fba28a",
+        "display": "slider",
+        "step": 0.05,
+        "label": "Transition time",
+        "name": "transition_time",
+        "suffix": "s",
+        "min": 0,
+        "max": 1,
+        "default": 0.3
+      },
+      {
+        "type": "group",
+        "id": "9f3852ab-20a0-21b6-9742-572757aef2fa",
+        "label": "Default",
+        "children": [
+          {
+            "type": "choice",
+            "id": "0d5729e4-d14e-0859-b81d-a8b4b0512459",
+            "display": "radio",
+            "choices": [
+              [
+                "color",
+                "Single Color"
+              ],
+              [
+                "gradient",
+                "Gradient"
+              ]
+            ],
+            "label": "Background type",
+            "name": "background_type",
+            "default": "color"
+          },
+          {
+            "type": "gradient",
+            "id": "f8da6fe1-7f18-cbcf-9206-63f1301bb6f0",
+            "label": "Gradient",
+            "name": "gradient",
+            "visibility": {
+              "controlling_field": "0d5729e4-d14e-0859-b81d-a8b4b0512459",
+              "operator": "EQUAL",
+              "controlling_value_regex": "gradient"
+            },
+            "default": {
+              "colors": [
+                {
+                  "color": {
+                    "r": 2,
+                    "g": 10,
+                    "b": 16,
+                    "a": 1
+                  }
+                },
+                {
+                  "color": {
+                    "r": 53,
+                    "g": 59,
+                    "b": 64,
+                    "a": 1
+                  }
+                }
+              ],
+              "side_or_corner": {
+                "verticalSide": "TOP",
+                "horizontalSide": "LEFT"
+              }
+            }
+          },
+          {
+            "type": "color",
+            "id": "50c8a777-07c3-5c63-8ca5-e4b340e5e24e",
+            "default": {
+              "color": "#020a10",
+              "opacity": 100
+            },
+            "label": "Background color",
+            "name": "background_color",
+            "visibility": {
+              "controlling_field": "0d5729e4-d14e-0859-b81d-a8b4b0512459",
+              "operator": "EQUAL",
+              "controlling_value_regex": "color"
+            }
+          },
+          {
+            "type": "color",
+            "id": "19e4f13a-649f-f82b-4afa-283abbe83213",
+            "default": {
+              "color": "#f8fcff",
+              "opacity": 100
+            },
+            "label": "Text color",
+            "name": "text_color"
+          },
+          {
+            "type": "color",
+            "id": "4b0e84d6-4d8d-ef08-bf91-ba63ed588ba6",
+            "default": {
+              "color": "#f8fcff",
+              "opacity": 100
+            },
+            "label": "Icon color",
+            "name": "icon_color"
+          },
+          {
+            "type": "choice",
+            "id": "40a812e1-bfe8-b251-5ca1-b80c2489a6eb",
+            "display": "radio",
+            "choices": [
+              [
+                "px",
+                "Px"
+              ],
+              [
+                "rem",
+                "Rem"
+              ]
+            ],
+            "label": "Spacing style",
+            "name": "spacing_style",
+            "default": "rem",
+            "help_text": "Use the Option \"Rem\" if you want to have more control over rem styling"
+          },
+          {
+            "type": "number",
+            "id": "2bd8c28c-3203-e85c-1237-bdc4ef916bfa",
+            "display": "slider",
+            "step": 0.125,
+            "label": "Horizontal padding",
+            "name": "horizontal_padding",
+            "default": 2.5,
+            "max": 5,
+            "min": 0.125,
+            "suffix": "rem",
+            "visibility": {
+              "controlling_field": "40a812e1-bfe8-b251-5ca1-b80c2489a6eb",
+              "operator": "EQUAL",
+              "controlling_value_regex": "rem"
+            }
+          },
+          {
+            "type": "number",
+            "display": "slider",
+            "step": 0.125,
+            "label": "Vertical padding",
+            "name": "vertical_padding",
+            "default": 1,
+            "max": 2,
+            "min": 0.125,
+            "suffix": "rem",
+            "oldId": "2bd8c28c-3203-e85c-1237-bdc4ef916bfa",
+            "id": "9217625f-f36d-29dc-479c-67abd6d2284b",
+            "visibility": {
+              "controlling_field": "40a812e1-bfe8-b251-5ca1-b80c2489a6eb",
+              "operator": "EQUAL",
+              "controlling_value_regex": "rem"
+            }
+          },
+          {
+            "type": "spacing",
+            "id": "2f39e018-a949-4fe3-2358-779c0c4957d0",
+            "label": "Spacing",
+            "name": "spacing",
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 16,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 16,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 40,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 40,
+                  "units": "px"
+                }
+              }
+            },
+            "visibility": {
+              "controlling_field": "40a812e1-bfe8-b251-5ca1-b80c2489a6eb",
+              "operator": "EQUAL",
+              "controlling_value_regex": "px"
+            }
+          },
+          {
+            "type": "number",
+            "id": "e5b09bc2-927b-545e-5cb4-b4ca5e89a174",
+            "display": "slider",
+            "step": 0.125,
+            "label": "Icon spacing",
+            "name": "icon_spacing",
+            "suffix": "rem",
+            "min": 0.125,
+            "max": 1,
+            "default": 0.25,
+            "help_text": "Will add a spacinig between Icon and Label"
+          }
+        ],
+        "name": "default",
+        "default": {
+          "background_type": "color",
+          "gradient": {
+            "colors": [
+              {
+                "color": {
+                  "r": 2,
+                  "g": 10,
+                  "b": 16,
+                  "a": 1
+                }
+              },
+              {
+                "color": {
+                  "r": 53,
+                  "g": 59,
+                  "b": 64,
+                  "a": 1
+                }
+              }
+            ],
+            "side_or_corner": {
+              "verticalSide": "TOP",
+              "horizontalSide": "LEFT"
+            }
+          },
+          "background_color": {
+            "color": "#020a10",
+            "opacity": 100
+          },
+          "text_color": {
+            "color": "#f8fcff",
+            "opacity": 100
+          },
+          "icon_color": {
+            "color": "#f8fcff",
+            "opacity": 100
+          },
+          "spacing_style": "rem",
+          "horizontal_padding": 2.5,
+          "vertical_padding": 1,
+          "spacing": {
+            "padding": {
+              "top": {
+                "value": 16,
+                "units": "px"
+              },
+              "bottom": {
+                "value": 16,
+                "units": "px"
+              },
+              "left": {
+                "value": 40,
+                "units": "px"
+              },
+              "right": {
+                "value": 40,
+                "units": "px"
+              }
+            }
+          },
+          "icon_spacing": 0.25
+        }
+      },
+      {
+        "type": "group",
+        "label": "Hover",
+        "children": [
+          {
+            "type": "choice",
+            "display": "radio",
+            "choices": [
+              [
+                "color",
+                "Single Color"
+              ],
+              [
+                "gradient",
+                "Gradient"
+              ]
+            ],
+            "label": "Background type",
+            "name": "background_type",
+            "default": "color",
+            "oldId": "0d5729e4-d14e-0859-b81d-a8b4b0512459",
+            "id": "ecd56910-1aa1-0b7b-a4c2-10e81d62602c"
+          },
+          {
+            "type": "gradient",
+            "label": "Gradient",
+            "name": "gradient",
+            "visibility": {
+              "controlling_field": "ecd56910-1aa1-0b7b-a4c2-10e81d62602c",
+              "operator": "EQUAL",
+              "controlling_value_regex": "gradient"
+            },
+            "default": {
+              "colors": [
+                {
+                  "color": {
+                    "r": 2,
+                    "g": 10,
+                    "b": 16,
+                    "a": 1
+                  }
+                },
+                {
+                  "color": {
+                    "r": 53,
+                    "g": 59,
+                    "b": 64,
+                    "a": 1
+                  }
+                }
+              ],
+              "side_or_corner": {
+                "verticalSide": "TOP",
+                "horizontalSide": "LEFT"
+              }
+            },
+            "oldId": "f8da6fe1-7f18-cbcf-9206-63f1301bb6f0",
+            "id": "2cc76fca-1ca1-4b5c-3343-68570864b98f"
+          },
+          {
+            "type": "color",
+            "default": {
+              "color": "#353b40",
+              "opacity": 100
+            },
+            "label": "Background color",
+            "name": "background_color",
+            "visibility": {
+              "controlling_field": "ecd56910-1aa1-0b7b-a4c2-10e81d62602c",
+              "operator": "EQUAL",
+              "controlling_value_regex": "color"
+            },
+            "oldId": "50c8a777-07c3-5c63-8ca5-e4b340e5e24e",
+            "id": "b9123f47-7023-4e51-341c-f3fea8db6d37"
+          },
+          {
+            "type": "color",
+            "default": {
+              "color": "#f8fcff",
+              "opacity": 97
+            },
+            "label": "Text color",
+            "name": "text_color",
+            "oldId": "19e4f13a-649f-f82b-4afa-283abbe83213",
+            "id": "44dbfb08-5419-91c7-e274-3315193625a0"
+          },
+          {
+            "type": "color",
+            "default": {
+              "color": "#f8fcff",
+              "opacity": 100
+            },
+            "label": "Icon color",
+            "name": "icon_color",
+            "oldId": "4b0e84d6-4d8d-ef08-bf91-ba63ed588ba6",
+            "id": "b3e00f25-4c8f-29f5-2722-df5e98f4961d"
+          },
+          {
+            "type": "choice",
+            "display": "radio",
+            "choices": [
+              [
+                "px",
+                "Px"
+              ],
+              [
+                "rem",
+                "Rem"
+              ]
+            ],
+            "label": "Spacing style",
+            "name": "spacing_style",
+            "default": "rem",
+            "help_text": "Use the Option \"Rem\" if you want to have more control over rem styling",
+            "oldId": "40a812e1-bfe8-b251-5ca1-b80c2489a6eb",
+            "id": "d553cf6d-034b-615b-3a37-ba3d7c15e642"
+          },
+          {
+            "type": "number",
+            "display": "slider",
+            "step": 0.125,
+            "label": "Horizontal padding",
+            "name": "horizontal_padding",
+            "default": 2.5,
+            "max": 5,
+            "min": 0.125,
+            "suffix": "rem",
+            "visibility": {
+              "controlling_field": "d553cf6d-034b-615b-3a37-ba3d7c15e642",
+              "operator": "EQUAL",
+              "controlling_value_regex": "rem"
+            },
+            "oldId": "2bd8c28c-3203-e85c-1237-bdc4ef916bfa",
+            "id": "548567a9-9e94-e7e6-8eb9-04da2b55d6dd"
+          },
+          {
+            "type": "number",
+            "display": "slider",
+            "step": 0.125,
+            "label": "Vertical padding",
+            "name": "vertical_padding",
+            "default": 1,
+            "max": 2,
+            "min": 0.125,
+            "suffix": "rem",
+            "oldId": "9217625f-f36d-29dc-479c-67abd6d2284b",
+            "visibility": {
+              "controlling_field": "d553cf6d-034b-615b-3a37-ba3d7c15e642",
+              "operator": "EQUAL",
+              "controlling_value_regex": "rem"
+            },
+            "id": "f624f412-4d75-4a58-002d-b8ceef7917fa"
+          },
+          {
+            "type": "spacing",
+            "label": "Spacing",
+            "name": "spacing",
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 16,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 16,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 40,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 40,
+                  "units": "px"
+                }
+              }
+            },
+            "visibility": {
+              "controlling_field": "d553cf6d-034b-615b-3a37-ba3d7c15e642",
+              "operator": "EQUAL",
+              "controlling_value_regex": "px"
+            },
+            "oldId": "2f39e018-a949-4fe3-2358-779c0c4957d0",
+            "id": "ec97d50e-4388-5543-980b-81ae87583e3c"
+          },
+          {
+            "type": "number",
+            "display": "slider",
+            "step": 0.125,
+            "label": "Icon spacing",
+            "name": "icon_spacing",
+            "suffix": "rem",
+            "min": 0.125,
+            "max": 1,
+            "default": 0.25,
+            "help_text": "Will add a spacinig between Icon and Label",
+            "oldId": "e5b09bc2-927b-545e-5cb4-b4ca5e89a174",
+            "id": "06485f1c-837f-1936-90c5-27b82924eb75"
+          }
+        ],
+        "name": "hover",
+        "default": {
+          "background_type": "color",
+          "gradient": {
+            "colors": [
+              {
+                "color": {
+                  "r": 2,
+                  "g": 10,
+                  "b": 16,
+                  "a": 1
+                }
+              },
+              {
+                "color": {
+                  "r": 53,
+                  "g": 59,
+                  "b": 64,
+                  "a": 1
+                }
+              }
+            ],
+            "side_or_corner": {
+              "verticalSide": "TOP",
+              "horizontalSide": "LEFT"
+            }
+          },
+          "background_color": {
+            "color": "#353b40",
+            "opacity": 100
+          },
+          "text_color": {
+            "color": "#f8fcff",
+            "opacity": 97
+          },
+          "icon_color": {
+            "color": "#f8fcff",
+            "opacity": 100
+          },
+          "spacing_style": "rem",
+          "horizontal_padding": 2.5,
+          "vertical_padding": 1,
+          "spacing": {
+            "padding": {
+              "top": {
+                "value": 16,
+                "units": "px"
+              },
+              "bottom": {
+                "value": 16,
+                "units": "px"
+              },
+              "left": {
+                "value": 40,
+                "units": "px"
+              },
+              "right": {
+                "value": 40,
+                "units": "px"
+              }
+            }
+          },
+          "icon_spacing": 0.25
+        },
+        "oldId": "9f3852ab-20a0-21b6-9742-572757aef2fa",
+        "id": "7b01b848-2a54-07e0-e160-705c0dfa9dff"
+      },
+      {
+        "type": "group",
+        "label": "Focus",
+        "children": [
+          {
+            "type": "choice",
+            "display": "radio",
+            "choices": [
+              [
+                "color",
+                "Single Color"
+              ],
+              [
+                "gradient",
+                "Gradient"
+              ]
+            ],
+            "label": "Background type",
+            "name": "background_type",
+            "default": "color",
+            "oldId": "ecd56910-1aa1-0b7b-a4c2-10e81d62602c",
+            "id": "3bd8b521-d457-8c7d-3bb2-fd0def4cdd70"
+          },
+          {
+            "type": "gradient",
+            "label": "Gradient",
+            "name": "gradient",
+            "visibility": {
+              "controlling_field": "3bd8b521-d457-8c7d-3bb2-fd0def4cdd70",
+              "operator": "EQUAL",
+              "controlling_value_regex": "gradient"
+            },
+            "default": {
+              "colors": [
+                {
+                  "color": {
+                    "r": 2,
+                    "g": 10,
+                    "b": 16,
+                    "a": 1
+                  }
+                },
+                {
+                  "color": {
+                    "r": 53,
+                    "g": 59,
+                    "b": 64,
+                    "a": 1
+                  }
+                }
+              ],
+              "side_or_corner": {
+                "verticalSide": "TOP",
+                "horizontalSide": "LEFT"
+              }
+            },
+            "oldId": "2cc76fca-1ca1-4b5c-3343-68570864b98f",
+            "id": "d5dbb266-cba4-fd7c-7792-8c5035db8954"
+          },
+          {
+            "type": "color",
+            "default": {
+              "color": "#2196f3",
+              "opacity": 100
+            },
+            "label": "Background color",
+            "name": "background_color",
+            "visibility": {
+              "controlling_field": "3bd8b521-d457-8c7d-3bb2-fd0def4cdd70",
+              "operator": "EQUAL",
+              "controlling_value_regex": "color"
+            },
+            "oldId": "b9123f47-7023-4e51-341c-f3fea8db6d37",
+            "id": "c171a74d-487f-f9c7-4fe6-a553e8445f50"
+          },
+          {
+            "type": "color",
+            "default": {
+              "color": "#f8fcff",
+              "opacity": 97
+            },
+            "label": "Text color",
+            "name": "text_color",
+            "oldId": "44dbfb08-5419-91c7-e274-3315193625a0",
+            "id": "5014a572-5add-42f3-8ece-9e987c77d4a5"
+          },
+          {
+            "type": "color",
+            "default": {
+              "color": "#f8fcff",
+              "opacity": 100
+            },
+            "label": "Icon color",
+            "name": "icon_color",
+            "oldId": "b3e00f25-4c8f-29f5-2722-df5e98f4961d",
+            "id": "c92b51dd-d5f7-811a-789e-2abf3beeec16"
+          },
+          {
+            "type": "choice",
+            "display": "radio",
+            "choices": [
+              [
+                "px",
+                "Px"
+              ],
+              [
+                "rem",
+                "Rem"
+              ]
+            ],
+            "label": "Spacing style",
+            "name": "spacing_style",
+            "default": "rem",
+            "help_text": "Use the Option \"Rem\" if you want to have more control over rem styling",
+            "oldId": "d553cf6d-034b-615b-3a37-ba3d7c15e642",
+            "id": "146501cd-8434-e1c8-8a8f-4ae030038089"
+          },
+          {
+            "type": "number",
+            "display": "slider",
+            "step": 0.125,
+            "label": "Horizontal padding",
+            "name": "horizontal_padding",
+            "default": 2.5,
+            "max": 5,
+            "min": 0.125,
+            "suffix": "rem",
+            "visibility": {
+              "controlling_field": "146501cd-8434-e1c8-8a8f-4ae030038089",
+              "operator": "EQUAL",
+              "controlling_value_regex": "rem"
+            },
+            "oldId": "548567a9-9e94-e7e6-8eb9-04da2b55d6dd",
+            "id": "48093a7b-0e39-e2a9-dd5b-fc5f47cb1311"
+          },
+          {
+            "type": "number",
+            "display": "slider",
+            "step": 0.125,
+            "label": "Vertical padding",
+            "name": "vertical_padding",
+            "default": 1,
+            "max": 2,
+            "min": 0.125,
+            "suffix": "rem",
+            "oldId": "f624f412-4d75-4a58-002d-b8ceef7917fa",
+            "visibility": {
+              "controlling_field": "146501cd-8434-e1c8-8a8f-4ae030038089",
+              "operator": "EQUAL",
+              "controlling_value_regex": "rem"
+            },
+            "id": "372136ee-242a-2fdf-20ed-04a74b4dc2d6"
+          },
+          {
+            "type": "spacing",
+            "label": "Spacing",
+            "name": "spacing",
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 16,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 16,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 40,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 40,
+                  "units": "px"
+                }
+              }
+            },
+            "visibility": {
+              "controlling_field": "146501cd-8434-e1c8-8a8f-4ae030038089",
+              "operator": "EQUAL",
+              "controlling_value_regex": "px"
+            },
+            "oldId": "ec97d50e-4388-5543-980b-81ae87583e3c",
+            "id": "0e57e84e-ff79-57f2-9529-babc9af5878b"
+          },
+          {
+            "type": "number",
+            "display": "slider",
+            "step": 0.125,
+            "label": "Icon spacing",
+            "name": "icon_spacing",
+            "suffix": "rem",
+            "min": 0.125,
+            "max": 1,
+            "default": 0.25,
+            "help_text": "Will add a spacinig between Icon and Label",
+            "oldId": "06485f1c-837f-1936-90c5-27b82924eb75",
+            "id": "eb2a1508-6e3c-aa6d-f0c3-ae607de9e86a"
+          }
+        ],
+        "name": "focus",
+        "default": {
+          "background_type": "color",
+          "gradient": {
+            "colors": [
+              {
+                "color": {
+                  "r": 2,
+                  "g": 10,
+                  "b": 16,
+                  "a": 1
+                }
+              },
+              {
+                "color": {
+                  "r": 53,
+                  "g": 59,
+                  "b": 64,
+                  "a": 1
+                }
+              }
+            ],
+            "side_or_corner": {
+              "verticalSide": "TOP",
+              "horizontalSide": "LEFT"
+            }
+          },
+          "background_color": {
+            "color": "#2196f3",
+            "opacity": 100
+          },
+          "text_color": {
+            "color": "#f8fcff",
+            "opacity": 97
+          },
+          "icon_color": {
+            "color": "#f8fcff",
+            "opacity": 100
+          },
+          "spacing_style": "rem",
+          "horizontal_padding": 2.5,
+          "vertical_padding": 1,
+          "spacing": {
+            "padding": {
+              "top": {
+                "value": 16,
+                "units": "px"
+              },
+              "bottom": {
+                "value": 16,
+                "units": "px"
+              },
+              "left": {
+                "value": 40,
+                "units": "px"
+              },
+              "right": {
+                "value": 40,
+                "units": "px"
+              }
+            }
+          },
+          "icon_spacing": 0.25
+        },
+        "oldId": "7b01b848-2a54-07e0-e160-705c0dfa9dff",
+        "id": "d9f30a7e-2db6-85ec-9e2c-4dc34fe08298"
+      }
+    ],
+    "default": {
+      "transition_time": 0.3,
+      "default": {
+        "background_type": "color",
+        "gradient": {
+          "colors": [
+            {
+              "color": {
+                "r": 2,
+                "g": 10,
+                "b": 16,
+                "a": 1
+              }
+            },
+            {
+              "color": {
+                "r": 53,
+                "g": 59,
+                "b": 64,
+                "a": 1
+              }
+            }
+          ],
+          "side_or_corner": {
+            "verticalSide": "TOP",
+            "horizontalSide": "LEFT"
+          }
+        },
+        "background_color": {
+          "color": "#020a10",
+          "opacity": 100
+        },
+        "text_color": {
+          "color": "#f8fcff",
+          "opacity": 100
+        },
+        "icon_color": {
+          "color": "#f8fcff",
+          "opacity": 100
+        },
+        "spacing_style": "rem",
+        "horizontal_padding": 2.5,
+        "vertical_padding": 1,
+        "spacing": {
+          "padding": {
+            "top": {
+              "value": 16,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 16,
+              "units": "px"
+            },
+            "left": {
+              "value": 40,
+              "units": "px"
+            },
+            "right": {
+              "value": 40,
+              "units": "px"
+            }
+          }
+        },
+        "icon_spacing": 0.25
+      },
+      "hover": {
+        "background_type": "color",
+        "gradient": {
+          "colors": [
+            {
+              "color": {
+                "r": 2,
+                "g": 10,
+                "b": 16,
+                "a": 1
+              }
+            },
+            {
+              "color": {
+                "r": 53,
+                "g": 59,
+                "b": 64,
+                "a": 1
+              }
+            }
+          ],
+          "side_or_corner": {
+            "verticalSide": "TOP",
+            "horizontalSide": "LEFT"
+          }
+        },
+        "background_color": {
+          "color": "#353b40",
+          "opacity": 100
+        },
+        "text_color": {
+          "color": "#f8fcff",
+          "opacity": 97
+        },
+        "icon_color": {
+          "color": "#f8fcff",
+          "opacity": 100
+        },
+        "spacing_style": "rem",
+        "horizontal_padding": 2.5,
+        "vertical_padding": 1,
+        "spacing": {
+          "padding": {
+            "top": {
+              "value": 16,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 16,
+              "units": "px"
+            },
+            "left": {
+              "value": 40,
+              "units": "px"
+            },
+            "right": {
+              "value": 40,
+              "units": "px"
+            }
+          }
+        },
+        "icon_spacing": 0.25
+      },
+      "focus": {
+        "background_type": "color",
+        "gradient": {
+          "colors": [
+            {
+              "color": {
+                "r": 2,
+                "g": 10,
+                "b": 16,
+                "a": 1
+              }
+            },
+            {
+              "color": {
+                "r": 53,
+                "g": 59,
+                "b": 64,
+                "a": 1
+              }
+            }
+          ],
+          "side_or_corner": {
+            "verticalSide": "TOP",
+            "horizontalSide": "LEFT"
+          }
+        },
+        "background_color": {
+          "color": "#2196f3",
+          "opacity": 100
+        },
+        "text_color": {
+          "color": "#f8fcff",
+          "opacity": 97
+        },
+        "icon_color": {
+          "color": "#f8fcff",
+          "opacity": 100
+        },
+        "spacing_style": "rem",
+        "horizontal_padding": 2.5,
+        "vertical_padding": 1,
+        "spacing": {
+          "padding": {
+            "top": {
+              "value": 16,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 16,
+              "units": "px"
+            },
+            "left": {
+              "value": 40,
+              "units": "px"
+            },
+            "right": {
+              "value": 40,
+              "units": "px"
+            }
+          }
+        },
+        "icon_spacing": 0.25
+      }
+    }
+  }
+]
