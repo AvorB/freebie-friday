@@ -1,0 +1,53 @@
+{# start configuration #}
+{% if module.youtube_url is containing "/watch?v=" %}
+{% set no_cookie        = module.youtube_url|replace("youtube.com", "youtube-nocookie.com") %}
+{% set href             = no_cookie|replace("/watch?v=", "/embed/") %}
+{% endif %}
+{# end configuration #}
+
+{# start styling #}
+{% require_css %}
+<style>
+	.abYoutube{
+		width:{{ module.style.width + "px"}};
+		height:{{ module.style.width|divide(1.7778)|int + "px"}}
+	}
+	{% if module.style.width >= "1024" %}
+	@media screen and (max-width:1024px){
+		.abYoutube{
+			width:100%;
+		min-height: calc(1024px /2.5);
+			height:auto;
+		}
+	}
+	{% endif %}
+	{% if module.style.width >= "768" %}
+	@media screen and (max-width:768px){
+		.abYoutube{
+			width:100%;
+		    min-height: calc(768px /2.5);
+			height:auto;
+		}
+	}
+	{% endif %}
+	{% if module.style.width >= "480" %}
+	@media screen and (max-width:480px){
+		.abYoutube{
+			width:100%;
+		    min-height: calc(480px /2.5);
+			height:auto;
+		}
+	}
+	{% endif %}
+	{% if module.style.full_width %}
+        .abYoutube.fullWidth{
+		width:100%;
+	}
+	{% endif %}
+</style>
+{% end_require_css %}
+{# end styling #}
+
+{# start module #}
+<iframe src="{{ href }}" title="{{ module.title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="abYoutube{% if module.style.full_width %} fullWidth{% endif %}"></iframe>
+{# end module #}

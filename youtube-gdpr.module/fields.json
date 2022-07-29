@@ -1,0 +1,83 @@
+[
+  {
+    "id": "1e25f047-e661-e44c-0f06-62358ee0b071",
+    "name": "youtube_url",
+    "label": "Youtube URL",
+    "display_width": null,
+    "help_text": "Paste a direct link to your video from the browser/tab into this field. It will become a GDPR compliant embed code",
+    "required": true,
+    "locked": false,
+    "validation_regex": "",
+    "placeholder": "https://www.youtube.com/watch?v=v2AC41dglnM",
+    "allow_new_line": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "default": "https://www.youtube.com/watch?v=v2AC41dglnM"
+  },
+  {
+    "id": "b4d17e0a-bc91-4bd9-8054-8d94a3596ab6",
+    "name": "title",
+    "display_width": null,
+    "label": "Title",
+    "help_text": "Like an alt-tag for images. Should be descriptive and needed for better accessibility and SEO",
+    "required": true,
+    "locked": false,
+    "validation_regex": "",
+    "placeholder": "A great song of AC/DC",
+    "allow_new_line": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "default": "A great song of AC/DC"
+  },
+  {
+    "name": "style",
+    "display_width": null,
+    "label": "Style",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "9a5aa55a-add9-2713-1742-186b3a8a22ae",
+        "name": "full_width",
+        "display_width": null,
+        "label": "Always full width",
+        "help_text": "set the video to full width",
+        "required": false,
+        "locked": false,
+        "display": "toggle",
+        "type": "boolean",
+        "default": false
+      },
+      {
+        "id": "954eb9a4-81e8-092a-8b24-36fa026268bb",
+        "name": "width",
+        "display_width": null,
+        "label": "Width",
+        "help_text": "The module get's automatically full-width if the width is higher than the common media-queries(480,768,1024)",
+        "inline_help_text": "The height is calculated by dividing the width with 1.7778 (16:9 format)",
+        "required": false,
+        "locked": false,
+        "visibility": {
+          "controlling_field": "9a5aa55a-add9-2713-1742-186b3a8a22ae",
+          "controlling_value_regex": "false",
+          "operator": "EQUAL",
+          "access": null,
+          "hidden_subfields": null
+        },
+        "display": "slider",
+        "min": 560,
+        "max": 1920,
+        "step": 1,
+        "type": "number",
+        "default": 560
+      }
+    ],
+    "tab": "STYLE",
+    "expanded": false,
+    "type": "group",
+    "default": {
+      "full_width": false,
+      "width": 560
+    }
+  }
+]
