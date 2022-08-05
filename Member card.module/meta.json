@@ -1,0 +1,15 @@
+{
+  "label": "Member card",
+  "css_assets": [],
+  "external_js": [],
+  "help_text": "",
+  "js_assets": [],
+  "other_assets": [],
+  "smart_type": "NOT_SMART",
+  "tags": [],
+  "global" : false,
+  "icon" : "fontawesome-5.14.0:Address%20Card",
+  "host_template_types" : [ "PAGE" ],
+  "module_id" : 80374737490,
+  "is_available_for_new_content" : true
+}

@@ -1,0 +1,561 @@
+[
+  {
+    "default": {
+      "size_type": "auto",
+      "src": "",
+      "alt": null,
+      "loading": "lazy"
+    },
+    "display_width": null,
+    "id": "22a02955-80ea-1a1f-ff62-7f7f44e77417",
+    "label": "Profile image",
+    "locked": false,
+    "name": "profile_image",
+    "required": false,
+    "resizable": false,
+    "responsive": true,
+    "show_loading": false,
+    "type": "image"
+  },
+  {
+    "allow_new_line": false,
+    "display_width": null,
+    "id": "b65d4fae-d915-efb8-83f4-2a8a64f3ef89",
+    "label": "Title",
+    "locked": false,
+    "name": "title",
+    "required": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "validation_regex": ""
+  },
+  {
+    "allow_new_line": false,
+    "default": "Anton",
+    "display_width": null,
+    "id": "6b80b8ae-d04d-6d23-464e-b915179faf46",
+    "label": "First name",
+    "locked": false,
+    "name": "first_name",
+    "required": true,
+    "show_emoji_picker": false,
+    "type": "text",
+    "validation_regex": ""
+  },
+  {
+    "allow_new_line": false,
+    "default": "Bujanowski",
+    "display_width": null,
+    "id": "8aefb640-7a3f-ecab-114d-015d1d3b0eab",
+    "label": "Last name",
+    "locked": false,
+    "name": "last_name",
+    "required": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "validation_regex": ""
+  },
+  {
+    "allow_new_line": false,
+    "default": "Designer & Developer",
+    "display_width": null,
+    "id": "c7fe4635-561d-cca1-a4a0-5c081e17ebd5",
+    "label": "Position",
+    "locked": false,
+    "name": "position",
+    "required": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "validation_regex": ""
+  },
+  {
+    "default": true,
+    "display": "toggle",
+    "display_width": null,
+    "id": "d5327ae1-889b-86be-4569-d9c1bb7933df",
+    "label": "Show social_follow",
+    "locked": false,
+    "name": "show_social_follow",
+    "required": false,
+    "type": "boolean"
+  },
+  {
+    "default": true,
+    "display": "toggle",
+    "display_width": null,
+    "help_text": "Only activate this if you don't see any icons",
+    "id": "3fb47f05-a0e4-acff-6570-3da9e4f246ef",
+    "label": "Include FontAwesome Brands",
+    "locked": false,
+    "name": "include_fontawesome",
+    "required": false,
+    "type": "boolean",
+    "visibility": {
+      "controlling_field": "d5327ae1-889b-86be-4569-d9c1bb7933df",
+      "controlling_value_regex": "true",
+      "operator": "EQUAL"
+    }
+  },
+  {
+    "type": "choice",
+    "id": "f25c9b56-fad2-a372-d888-8734b3d25362",
+    "display": "radio",
+    "choices": [
+      [
+        "fas",
+        "Solid"
+      ],
+      [
+        "far",
+        "Regular"
+      ]
+    ],
+    "label": "FontAwesome weight",
+    "name": "fontawesome_weight",
+    "default": "fas"
+  },
+  {
+    "children": [
+      {
+        "children": [
+          {
+            "default": {
+              "url": {
+                "type": "EMAIL_ADDRESS",
+                "href": "info@antonbujanowski.de",
+                "content_id": null
+              },
+              "open_in_new_tab": false,
+              "no_follow": false
+            },
+            "display_width": null,
+            "id": "ba602727-3588-14ba-f2f6-ebbdaeddda9e",
+            "label": "Social Link",
+            "locked": false,
+            "name": "social_link",
+            "required": false,
+            "show_advanced_rel_options": false,
+            "supported_types": [
+              "EXTERNAL",
+              "EMAIL_ADDRESS"
+            ],
+            "type": "link",
+            "help_text": "select \"extern\" for social network icons"
+          },
+          {
+            "allow_new_line": false,
+            "display_width": null,
+            "help_text": "Paste every brand icon from FontAwesome here. You can find a list of all brand icons <a href=\"https://fontawesome.com/search?s=brands\" target=\"_blank\">here</a>.",
+            "id": "10a6b242-2362-abaa-e0e4-d127ec41b3c9",
+            "label": "Social icon",
+            "locked": false,
+            "name": "social_icon",
+            "placeholder": "fa-facebook",
+            "required": false,
+            "show_emoji_picker": false,
+            "type": "text",
+            "validation_regex": ""
+          }
+        ],
+        "default": [
+          {
+            "social_link": {
+              "url": {
+                "type": "EMAIL_ADDRESS",
+                "href": "info@antonbujanowski.de",
+                "content_id": null
+              },
+              "open_in_new_tab": false,
+              "no_follow": false
+            }
+          }
+        ],
+        "display_width": null,
+        "expanded": false,
+        "id": "4e56f4ce-bb91-51a3-3a8d-9efede8126a2",
+        "label": "social network",
+        "locked": false,
+        "name": "social_network",
+        "occurrence": {
+          "default": 1,
+          "max": 6,
+          "min": 1,
+          "sorting_label_field": "f354f352-03ac-6273-6104-eca1b3bd3200"
+        },
+        "required": false,
+        "tab": "CONTENT",
+        "type": "group"
+      }
+    ],
+    "default": {
+      "social_network": [
+        {
+          "social_link": {
+            "url": {
+              "type": "EMAIL_ADDRESS",
+              "href": "info@antonbujanowski.de",
+              "content_id": null
+            },
+            "open_in_new_tab": false,
+            "no_follow": false
+          }
+        }
+      ]
+    },
+    "display_width": null,
+    "expanded": false,
+    "id": "6efd5ed9-0759-6e5c-acb2-4699136df8df",
+    "label": "Social networks",
+    "locked": false,
+    "name": "social_networks",
+    "required": false,
+    "tab": "CONTENT",
+    "type": "group"
+  },
+  {
+    "children": [
+      {
+        "default": {
+          "padding": {
+            "top": {
+              "value": 30,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 30,
+              "units": "px"
+            },
+            "left": {
+              "value": 30,
+              "units": "px"
+            },
+            "right": {
+              "value": 30,
+              "units": "px"
+            }
+          }
+        },
+        "display_width": null,
+        "help_text": "",
+        "id": "f4f94489-166a-1b54-2113-d83778250a84",
+        "label": "Spacing",
+        "locked": false,
+        "name": "spacing",
+        "required": false,
+        "type": "spacing"
+      },
+      {
+        "default": {
+          "color": "#f2f4f7",
+          "opacity": 100
+        },
+        "display_width": null,
+        "id": "39cb8d7b-821f-40b0-9094-0a4018a6201a",
+        "label": "Background color",
+        "locked": false,
+        "name": "background_color",
+        "required": false,
+        "type": "color"
+      },
+      {
+        "default": 6,
+        "display": "slider",
+        "display_width": null,
+        "id": "638c552f-9d09-595f-5108-4341ee1ab6c9",
+        "label": "Border radius",
+        "locked": false,
+        "max": 48,
+        "min": 0,
+        "name": "border_radius",
+        "required": false,
+        "step": 2,
+        "suffix": "px",
+        "type": "number"
+      },
+      {
+        "children": [
+          {
+            "default": 0.25,
+            "display": "slider",
+            "display_width": null,
+            "help_text": "the amount of transition time (higher numbers will give you a smoother transition; default: .25s)",
+            "id": "cb1914a4-e1be-44e4-9263-3c6a77fff188",
+            "label": "Transition",
+            "locked": false,
+            "max": 1,
+            "min": 0,
+            "name": "transition",
+            "required": false,
+            "step": 0.05,
+            "suffix": "s",
+            "type": "number"
+          },
+          {
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 5,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 5,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 5,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 5,
+                  "units": "px"
+                }
+              }
+            },
+            "display_width": null,
+            "id": "b22ed829-af8e-d1c4-7c64-68034b20492c",
+            "label": "Spacing",
+            "locked": false,
+            "name": "spacing",
+            "required": false,
+            "type": "spacing"
+          },
+          {
+            "children": [
+              {
+                "default": {
+                  "color": "#edf7fe",
+                  "opacity": 100
+                },
+                "display_width": null,
+                "id": "737c98ad-9e3e-8fd5-a9fb-34c4064c15c3",
+                "label": "Background color",
+                "locked": false,
+                "name": "background_color",
+                "required": false,
+                "type": "color"
+              },
+              {
+                "default": {
+                  "color": "#020a10",
+                  "opacity": 100
+                },
+                "display_width": null,
+                "id": "eb642cae-021d-e1da-2543-cac1d204bdf0",
+                "label": "Icon color",
+                "locked": false,
+                "name": "icon_color",
+                "required": false,
+                "type": "color"
+              }
+            ],
+            "default": {
+              "background_color": {
+                "color": "#edf7fe",
+                "opacity": 100
+              },
+              "icon_color": {
+                "color": "#020a10",
+                "opacity": 100
+              }
+            },
+            "display_width": null,
+            "expanded": false,
+            "id": "c6569d48-778b-5b0a-7b56-4695ef256514",
+            "label": "Default",
+            "locked": false,
+            "name": "default",
+            "required": false,
+            "tab": "STYLE",
+            "type": "group"
+          },
+          {
+            "children": [
+              {
+                "default": {
+                  "color": "#020a10",
+                  "opacity": 100
+                },
+                "display_width": null,
+                "id": "4952ace7-02fa-2cdc-da70-bb0485fafa07",
+                "label": "Background color",
+                "locked": false,
+                "name": "background_color",
+                "required": false,
+                "type": "color"
+              },
+              {
+                "default": {
+                  "color": "#edf7fe",
+                  "opacity": 100
+                },
+                "display_width": null,
+                "id": "0c4d584f-0c35-db9b-e14e-6f829d85761b",
+                "label": "Icon color",
+                "locked": false,
+                "name": "icon_color",
+                "required": false,
+                "type": "color"
+              }
+            ],
+            "default": {
+              "background_color": {
+                "color": "#020a10",
+                "opacity": 100
+              },
+              "icon_color": {
+                "color": "#edf7fe",
+                "opacity": 100
+              }
+            },
+            "display_width": null,
+            "expanded": false,
+            "help_text": "also for Focus state",
+            "id": "4e7b310d-f403-79e9-4a89-8a9227ecf5b9",
+            "label": "Hover",
+            "locked": false,
+            "name": "hover",
+            "required": false,
+            "tab": "STYLE",
+            "type": "group"
+          }
+        ],
+        "default": {
+          "transition": 0.25,
+          "spacing": {
+            "padding": {
+              "top": {
+                "value": 5,
+                "units": "px"
+              },
+              "bottom": {
+                "value": 5,
+                "units": "px"
+              },
+              "left": {
+                "value": 5,
+                "units": "px"
+              },
+              "right": {
+                "value": 5,
+                "units": "px"
+              }
+            }
+          },
+          "default": {
+            "background_color": {
+              "color": "#edf7fe",
+              "opacity": 100
+            },
+            "icon_color": {
+              "color": "#020a10",
+              "opacity": 100
+            }
+          },
+          "hover": {
+            "background_color": {
+              "color": "#020a10",
+              "opacity": 100
+            },
+            "icon_color": {
+              "color": "#edf7fe",
+              "opacity": 100
+            }
+          }
+        },
+        "display_width": null,
+        "expanded": false,
+        "id": "42a17d5e-e330-8743-a62e-7025be88a0a3",
+        "label": "Social styling",
+        "locked": false,
+        "name": "social_styling",
+        "required": false,
+        "tab": "STYLE",
+        "type": "group",
+        "visibility": {
+          "controlling_field": "d5327ae1-889b-86be-4569-d9c1bb7933df",
+          "controlling_value_regex": "true",
+          "operator": "EQUAL"
+        }
+      }
+    ],
+    "default": {
+      "spacing": {
+        "padding": {
+          "top": {
+            "value": 30,
+            "units": "px"
+          },
+          "bottom": {
+            "value": 30,
+            "units": "px"
+          },
+          "left": {
+            "value": 30,
+            "units": "px"
+          },
+          "right": {
+            "value": 30,
+            "units": "px"
+          }
+        }
+      },
+      "background_color": {
+        "color": "#f2f4f7",
+        "opacity": 100
+      },
+      "border_radius": 6,
+      "social_styling": {
+        "transition": 0.25,
+        "spacing": {
+          "padding": {
+            "top": {
+              "value": 5,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 5,
+              "units": "px"
+            },
+            "left": {
+              "value": 5,
+              "units": "px"
+            },
+            "right": {
+              "value": 5,
+              "units": "px"
+            }
+          }
+        },
+        "default": {
+          "background_color": {
+            "color": "#edf7fe",
+            "opacity": 100
+          },
+          "icon_color": {
+            "color": "#020a10",
+            "opacity": 100
+          }
+        },
+        "hover": {
+          "background_color": {
+            "color": "#020a10",
+            "opacity": 100
+          },
+          "icon_color": {
+            "color": "#edf7fe",
+            "opacity": 100
+          }
+        }
+      }
+    },
+    "display_width": null,
+    "expanded": false,
+    "id": "4fdb7409-bbdf-5d73-0a7b-2caf6b5845ad",
+    "label": "Style",
+    "locked": false,
+    "name": "style",
+    "required": false,
+    "tab": "STYLE",
+    "type": "group"
+  }
+]

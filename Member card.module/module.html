@@ -1,0 +1,186 @@
+{# start configuration #}
+{% set profile_image        = module.profile_image %}
+{% set title                = module.title %}
+{% set first_name           = module.first_name %}
+{% set last_name            = module.last_name %}
+{% set user_position        = module.position %}
+{% set networks             = module.social_networks %}
+{% set border_radius        = module.style.border_radius %}
+{% set transition_time      = module.style.social_styling.transition %}
+{% set load_fontawesome     = module.include_fontawesome %}
+{% set fontawesome_weight   = module.fontawesome_weight %}
+{% set icon_def_bg          = 'rgba(' + module.style.social_styling.default.background_color.color|convert_rgb + ',' + module.style.social_styling.default.background_color.opacity/100 + ')' %}
+{% set icon_def_color       = 'rgba(' + module.style.social_styling.default.icon_color.color|convert_rgb + ',' + module.style.social_styling.default.icon_color.opacity/100 + ')' %}
+{% set icon_hov_bg          = 'rgba(' + module.style.social_styling.hover.background_color.color|convert_rgb + ',' + module.style.social_styling.hover.background_color.opacity/100 + ')' %}
+{% set icon_hov_color       = 'rgba(' + module.style.social_styling.hover.icon_color.color|convert_rgb + ',' + module.style.social_styling.hover.icon_color.opacity/100 + ')' %}
+{# end configuration #}
+
+{# start macros #}
+{# transition #}
+{%- macro transition(time) -%}
+-webkit-transition: all {{ time }}s ease-in-out;
+-moz-transition: all {{ time }}s ease-in-out;
+-o-transition: all {{ time }}s ease-in-out;
+transition: all {{ time }}s ease-in-out;
+{%- endmacro -%}
+
+{# border radius #}
+{%- macro macro_border_radius(radius) -%}
+-webkit-border-radius: {{ radius }}px;
+-moz-border-radius: {{ radius }}px;
+border-radius: {{ radius }}px;
+{%- endmacro -%}
+{# end macros #}
+
+{# start styling #}
+{% require_css %}
+{% if load_fontawesome %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% endif %}
+<style>
+	.abMemberCard{
+		font-size:1.25rem;
+		font-weight:bold;
+		display:flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		align-content: flex-start;
+		justify-content: center;
+		align-items: center;
+		{% unless module.style.spacing.margin.top.value or module.style.spacing.margin.bottom.value == "0" %}
+		margin: {{ module.style.spacing.margin.top.value }}{{ module.style.spacing.margin.top.units }} 0 {{ module.style.spacing.margin.bottom.value }}{{ module.style.spacing.margin.bottom.units }} 0;
+		{% endunless %}
+		padding: {{ module.style.spacing.padding.top.value }}{{ module.style.spacing.padding.top.units }} {{ module.style.spacing.padding.right.value }}{{ module.style.spacing.padding.right.units }} {{ module.style.spacing.padding.bottom.value }}{{ module.style.spacing.padding.bottom.units }} {{ module.style.spacing.padding.left.value }}{{ module.style.spacing.padding.left.units }};
+		background-color: {{ module.style.background_color.css }};
+		{% unless border_radius == "0" %}
+		{{macro_border_radius("{{border_radius}}")}}
+		{% endunless %}
+	}
+
+	.abMemberCard img.abMemberImage{
+		margin-bottom:1rem;
+		width:100%;
+		{% unless border_radius == "0" %}
+		{{macro_border_radius("{{border_radius|divide(2)|int}}")}}
+		{% endunless %}
+	}
+	
+	.abMemberCard .abMemberInformations{
+		text-align:center;
+	}
+
+	.abMemberCard .abMemberPosition{
+		font-size:1rem;
+		display:block;
+		margin:.75rem auto;
+	}
+
+	{% if module.show_social_follow %}
+	{# start social icon styling #}
+	.abMemberCard .abSocialNetworkWrapper{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start
+			align-items: flex-start;
+		align-content: center;
+	}
+
+	.abMemberCard .abSingleNetwork{
+		{% unless transition_time == "0" %}
+		{{transition("{{transition_time}}")}}
+		{% endunless %}
+		{% unless border_radius == "0" %}
+		{{macro_border_radius("{{border_radius|divide(2)|int}}")}}
+		{% endunless %}
+		padding: {{ module.style.social_styling.spacing.padding.top.value }}{{ module.style.social_styling.spacing.padding.top.units }} {{ module.style.social_styling.spacing.padding.right.value }}{{ module.style.social_styling.spacing.padding.right.units }} {{ module.style.social_styling.spacing.padding.bottom.value }}{{ module.style.social_styling.spacing.padding.bottom.units }} {{ module.style.social_styling.spacing.padding.left.value }}{{ module.style.social_styling.spacing.padding.left.units }};
+	}
+
+	.abSingleNetwork{
+		padding:8px;
+		background: {{ icon_def_bg }};
+		width:3rem;
+		height:3rem;
+		margin:1rem;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		align-content: center;
+		justify-content: center;
+		align-items: center;
+		{% unless border_radius == "0" %}
+		{{macro_border_radius("{{border_radius}}")}}
+		{% endunless %}
+		{% unless transition_time == "0" %}
+		{{transition("{{transition_time}}")}}
+		{% endunless %}
+	}
+	.abSingleNetwork:hover{
+		background: {{ icon_hov_bg }};
+
+	}
+	.abSingleNetwork a{
+		text-decoration:none;
+		color: {{ icon_def_color }};
+	}
+	.abSingleNetwork:hover a{
+		color: {{ icon_hov_color }};
+	}
+	
+	.abSingleNetwork a i{
+		font-style:normal;
+	}
+	{# end social icon styling #}
+	{% endif %}
+</style>
+{% end_require_css %}
+{# end styling #}
+
+{# start module #}
+<div class="abMemberCard">
+	<div class="abMember {{ first_name|lower }}">
+		{# start  member image#}
+		{% if profile_image.src %}
+		<img src="{{ module.profile_image.src }}" alt="{{ module.profile_image.alt }}" loading="lazy" class="abMemberImage">
+		{% endif %}
+		{# end member image #}
+		{# start title, name and position #}
+		<div class="abMemberInformations">
+			{% unless title == "" %}
+			<span class="abMemberTitle">{{ title }}</span>
+			{% endunless %}
+			{% unless first_name == "" %}
+			<span class="abMemberName">{{ first_name }}</span>
+			{% endunless %}
+			{% unless last_name == "" %}
+			<span class="abMemberName">{{ last_name }}</span>
+			{% endunless %}
+			{% unless user_position == "" %}
+			<span class="abMemberPosition">
+				{{ user_position }}
+			</span>
+			{% endunless %}
+		</div>
+		{# end title, name and position#}
+	</div>
+	{# start social follow #}
+	{% if module.show_social_follow %}
+	<div class="abSocialNetworkWrapper">
+		{# start single network #}
+		{% for network in networks.social_network %}
+		<div class="abSingleNetwork">
+			{% set href = network.social_link.url.href %}
+			{% if network.social_link.url.type is equalto "EMAIL_ADDRESS" %}
+			{% set href = "mailto:" + href %}
+			{% endif %}
+			<a href="{{ href }}"{% if network.social_link.open_in_new_tab %} target="_blank"{% endif %}{% if network.social_link.rel %} rel="{{ network.social_link.rel }}"{% endif %}>
+				<i class="{% if network.social_link.url.type is equalto "EMAIL_ADDRESS" %} {{ fontawesome_weight }} {% else %}fab {% endif %}{{ network.social_icon }}"></i>
+			</a>
+		</div>
+
+		{% endfor %}
+		{# end social network #}	
+	</div>
+	{% endif %}
+	{# end social follow #}
+</div>
+{# end module #}
