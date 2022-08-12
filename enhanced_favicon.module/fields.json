@@ -1,0 +1,146 @@
+[ {
+  "id" : "7661ca9b-0fdc-2933-5a26-ad901e6f0b5c",
+  "name" : "override_favicon",
+  "display_width" : null,
+  "label" : "Override Favicon",
+  "help_text" : "This option will give you access to all settings and will override the default favicon which is set in the Hub brand settings",
+  "required" : false,
+  "locked" : false,
+  "display" : "toggle",
+  "type" : "boolean",
+  "default" : false
+}, {
+  "id" : "2d7b7815-b7e8-06e4-b944-840529ae6318",
+  "name" : "favicon",
+  "display_width" : null,
+  "label" : "Favicon",
+  "help_text" : "Select the favicon",
+  "required" : false,
+  "locked" : false,
+  "visibility" : {
+    "controlling_field" : "7661ca9b-0fdc-2933-5a26-ad901e6f0b5c",
+    "controlling_value_regex" : "true",
+    "operator" : "EQUAL",
+    "access" : null,
+    "hidden_subfields" : null
+  },
+  "responsive" : true,
+  "resizable" : false,
+  "show_loading" : false,
+  "type" : "image",
+  "default" : {
+    "size_type" : "auto",
+    "src" : "",
+    "alt" : null,
+    "loading" : "eager"
+  }
+}, {
+  "id" : "4a2658fc-3b0e-53d2-0133-ba9c3beccbff",
+  "name" : "microsoft_settings",
+  "display_width" : null,
+  "label" : "Microsoft settings",
+  "required" : false,
+  "locked" : false,
+  "visibility" : {
+    "controlling_field" : "7661ca9b-0fdc-2933-5a26-ad901e6f0b5c",
+    "controlling_value_regex" : "true",
+    "operator" : "EQUAL",
+    "access" : null,
+    "hidden_subfields" : null
+  },
+  "children" : [ {
+    "id" : "e89f5096-b6a1-8c1e-b9ff-b91b6bd581a2",
+    "name" : "use_custom_name",
+    "display_width" : null,
+    "label" : "Use custom name",
+    "help_text" : "If disabled the page name will be used",
+    "required" : false,
+    "locked" : false,
+    "display" : "toggle",
+    "type" : "boolean",
+    "default" : false
+  }, {
+    "id" : "edccc82a-a8bb-99fd-7d22-cf70a4e0bea6",
+    "name" : "custom_name",
+    "display_width" : null,
+    "label" : "Custom name",
+    "required" : false,
+    "locked" : false,
+    "validation_regex" : "",
+    "visibility" : {
+      "controlling_field" : "e89f5096-b6a1-8c1e-b9ff-b91b6bd581a2",
+      "controlling_value_regex" : "true",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "allow_new_line" : false,
+    "show_emoji_picker" : false,
+    "type" : "text"
+  }, {
+    "id" : "8cff4708-64d3-edfc-d5a1-73224c7389d2",
+    "name" : "tile_color",
+    "display_width" : null,
+    "label" : "Tile color",
+    "help_text" : "Set your tile color here. Tile colors are used if the link is moved to the \"Start bar\"(click on Windows icon)",
+    "inline_help_text" : "only HEX colors, no RGB(A)",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "default" : {
+      "color" : null,
+      "opacity" : null
+    }
+  }, {
+    "id" : "84c36e3c-37e9-6270-0f5b-9c0ffb43fff2",
+    "name" : "use_custom_image",
+    "display_width" : null,
+    "label" : "Use custom image",
+    "required" : false,
+    "locked" : false,
+    "display" : "toggle",
+    "type" : "boolean",
+    "default" : false
+  }, {
+    "id" : "22a9601d-3acd-899f-ebc5-fe8ed6836d01",
+    "name" : "favicon",
+    "display_width" : null,
+    "label" : "Favicon",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "84c36e3c-37e9-6270-0f5b-9c0ffb43fff2",
+      "controlling_value_regex" : "true",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "responsive" : true,
+    "resizable" : false,
+    "show_loading" : false,
+    "type" : "image",
+    "default" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null,
+      "loading" : "disabled"
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "type" : "group",
+  "default" : {
+    "use_custom_name" : false,
+    "tile_color" : {
+      "color" : null,
+      "opacity" : null
+    },
+    "use_custom_image" : false,
+    "favicon" : {
+      "size_type" : "auto",
+      "src" : "",
+      "alt" : null,
+      "loading" : "disabled"
+    }
+  }
+} ]

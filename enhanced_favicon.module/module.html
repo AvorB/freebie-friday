@@ -1,0 +1,32 @@
+{% if module.override_favicon %}
+{# start override #}
+{% require_head %}
+{# start apple icons #}
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ resize_image_url("{{ module.favicon.src }}", 0, 0, 57) }}" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ resize_image_url("{{ module.favicon.src }}", 0, 0, 114) }}" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ resize_image_url("{{ module.favicon.src }}", 0, 0, 72) }}" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ resize_image_url("{{ module.favicon.src }}", 0, 0, 144) }}" />
+<link rel="apple-touch-icon-precomposed" sizes="60x60" href="{{ resize_image_url("{{ module.favicon.src }}", 0, 0, 60) }}" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{ resize_image_url("{{ module.favicon.src }}", 0, 0, 120) }}" />
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="{{ resize_image_url("{{ module.favicon.src }}", 0, 0, 76) }}" />
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ resize_image_url("{{ module.favicon.src }}", 0, 0, 152) }}" />
+{# end apple icons #}
+{# start non-defined device icons #}
+<link rel="icon" type="image/png" href="{{ resize_image_url("{{ module.favicon.src }}", 0, 0, 196) }}" sizes="196x196" />
+<link rel="icon" type="image/png" href="{{ resize_image_url("{{ module.favicon.src }}", 0, 0, 96) }}" sizes="96x96" />
+<link rel="icon" type="image/png" href="{{ resize_image_url("{{ module.favicon.src }}", 0, 0, 32) }}" sizes="32x32" />
+<link rel="icon" type="image/png" href="{{ resize_image_url("{{ module.favicon.src }}", 0, 0, 16) }}" sizes="16x16" />
+<link rel="icon" type="image/png" href="{{ resize_image_url("{{ module.favicon.src }}", 0, 0, 128) }}" sizes="128x128" />
+{# end non-defined device icons #}
+{# start Microsoft icons #}
+<meta name="application-name" content="{% if module.microsoft_settings.use_custom_name %}{{ module.microsoft_settings.custom_name }}{% else %}{{ page_meta.html_title }}{% endif %}" />
+<meta name="msapplication-TileColor" content="{{module.microsoft_settings.tile_color.color}}" />
+<meta name="msapplication-TileImage" content="{% unless module.microsoft_settings.use_custom_image %}{{ resize_image_url("{{ module.favicon.src }}", 0, 0, 144) }}{% else %}{{ resize_image_url("{{ module.microsoft_settings.favicon.src }}", 0, 0, 144) }}{% endunless %}" />
+<meta name="msapplication-square70x70logo" content="{% unless module.microsoft_settings.use_custom_image %}{{ resize_image_url("{{ module.favicon.src }}", 0, 0, 70) }}{% else %}{{ resize_image_url("{{ module.microsoft_settings.favicon.src }}", 0, 0, 70) }}{% endunless %}" />
+<meta name="msapplication-square150x150logo" content="{% unless module.microsoft_settings.use_custom_image %}{{ resize_image_url("{{ module.favicon.src }}", 0, 0, 150) }}{% else %}{{ resize_image_url("{{ module.microsoft_settings.favicon.src }}", 0, 0,1508) }}{% endunless %}" />
+<meta name="msapplication-wide310x150logo" content="{% unless module.microsoft_settings.use_custom_image %}{{ resize_image_url("{{ module.favicon.src }}", 310, 150, 310) }}{% else %}{{ resize_image_url("{{ module.microsoft_settings.favicon.src }}", 310, 150, 310) }}{% endunless %}" />
+<meta name="msapplication-square310x310logo" content="{% unless module.microsoft_settings.use_custom_image %}{{ resize_image_url("{{ module.favicon.src }}", 0, 0, 310) }}{% else %}{{ resize_image_url("{{ module.microsoft_settings.favicon.src }}", 0, 0, 310) }}{% endunless %}" />
+{# end Microsoft icons #}
+{% end_require_head %}
+{# end override #}
+{% endif %}
