@@ -1,0 +1,43 @@
+{% require_head %}
+<style>
+.hs-form-booleancheckbox{
+				list-style:none;
+		}
+		
+		input[type="checkbox"]{
+				-moz-appearance: none;
+				-webkit-appearance: none;
+				-o-appearance: none;
+				display:inline-block;
+				width: 4rem !important;
+				height: 2rem;
+				background: rgba({{ module.style.background_color.color|convert_rgb }},{{ module.style.background_color.opacity/100 }});
+				margin-right: 0.5em;
+				position: relative;
+				top: 0;
+				border-radius:1rem;
+		}
+		input[type="checkbox"]:after{
+				position:absolute;
+				content:'';
+				width:1.75rem;
+				height:1.75rem;
+				top:0.1{{ module.style.transition_time }}5rem;
+				left:0.1{{ module.style.transition_time }}5rem;
+				background:rgba({{ module.style.color.color|convert_rgb }},{{ module.style.color.opacity/100 }});
+				border-radius:1.75rem;
+				-webkit-transition: all .{{ module.style.transition_time }}s ease-in-out;
+				-moz-transition: all .{{ module.style.transition_time }}s ease-in-out;
+				-ms-transition: all .{{ module.style.transition_time }}s ease-in-out;
+				-o-transition: all .{{ module.style.transition_time }}s ease-in-out;
+				transition: all .{{ module.style.transition_time }}s ease-in-out;
+		}
+		input[type="checkbox"]:checked:after{
+				left:calc(4rem - 1.75rem - .15rem);
+				
+		}
+</style>
+{% end_require_head %}
+<form>
+	<input type="checkbox">
+</form>

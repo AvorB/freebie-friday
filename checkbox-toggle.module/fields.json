@@ -1,0 +1,62 @@
+[ {
+  "id" : "139abce9-4e45-581e-6511-6fcf011e3542",
+  "name" : "style",
+  "display_width" : null,
+  "label" : "Style",
+  "required" : false,
+  "locked" : true,
+  "children" : [ {
+    "id" : "12650596-1a69-2b0b-e84b-6af6fa14346a",
+    "name" : "background_color",
+    "display_width" : null,
+    "label" : "Background color",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "default" : {
+      "color" : "#020a10",
+      "opacity" : 100
+    }
+  }, {
+    "id" : "4f3d54a3-0d32-a4cd-1f23-862da6fafdcf",
+    "name" : "color",
+    "display_width" : null,
+    "label" : "Color",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "default" : {
+      "color" : "#2196f3",
+      "opacity" : 100
+    }
+  }, {
+    "id" : "cda8c7dc-e6cf-bffe-4fb6-90844b4470db",
+    "name" : "transition_time",
+    "display_width" : null,
+    "label" : "Transition time",
+    "help_text" : "Transition time in ",
+    "required" : false,
+    "locked" : false,
+    "display" : "slider",
+    "min" : 0,
+    "max" : 1,
+    "step" : 0.05,
+    "suffix" : "s",
+    "type" : "number",
+    "default" : 0.25
+  } ],
+  "tab" : "STYLE",
+  "expanded" : false,
+  "type" : "group",
+  "default" : {
+    "background_color" : {
+      "color" : "#020a10",
+      "opacity" : 100
+    },
+    "color" : {
+      "color" : "#2196f3",
+      "opacity" : 100
+    },
+    "transition_time" : 0.25
+  }
+} ]
