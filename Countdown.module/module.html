@@ -1,0 +1,97 @@
+{# start styling #}
+{% require_css %}
+<style>
+	.abCountdownWrapper{
+				{{ module.style.text_font_settings.css }}
+		{{ module.style.background_options.spacing.css }}
+		{% if module.style.add_background %}
+		{% if module.style.background_options.background_type == "color" %}
+		background-color:{{ module.style.background_options.background_color.css }};
+		{% else %}
+		background:{{ module.style.background_options.gradient.css }};
+		{% endif %}
+		{% endif %}
+		
+	}
+	{% if module.style.overwrite_font_settings %}
+	.abCountdownContent .abDate{		
+		{{ module.style.number_font_settings.css }}
+	}
+	{% endif %}
+	.abCountdownWrapper .abDateText{
+    	{{ module.style.text_font_settings.style }};
+		font-size:{{ (module.style.number_font_settings.size * 0.5)|int + module.style.number_font_settings.size_unit }};
+		color:{{ module.style.text_font_settings.color }};
+	}
+	#abEnd{
+		{{ module.style.text_font_settings.css }}
+	}
+</style>
+{% end_require_css %}
+{# end styling #}
+<span style="font-family: {{ module.style.text_font_settings.font }}; {{ module.style.text_font_settings.style }}; color: {{ module.style.text_font_settings.color }}; font-size: {{ module.style.text_font_settings.size }}{{module.style.text_font_settings.size_unit }};">Hello World</span>
+{# start layout #}
+<section class="abCountdownWrapper">
+	<h2 id="headline">{{ module.headline }}</h2>
+	<div class="abCountdownContent">
+		<span class="abSeperateDate">
+			<span id="days" class="abDate"></span>
+		</span>
+		<span class="abSeperateDate">
+			<span id="hours" class="abDate"></span>
+		</span>
+		<span class="abSeperateDate">
+			<span id="minutes" class="abDate"></span>
+		</span>
+		<span class="abSeperateDate">
+			<span id="seconds" class="abDate"></span>
+		</span>
+		<span id="abEnd" class="abHidden"></span>	
+	</div>
+	</div>
+</section>
+{# end layout #}
+
+{# start logic #}
+{% require_js %}
+<script>
+	{# start countdown calculation #}
+	var countDownDate = new Date("{{ module.date_configurator.event_date|datetimeformat('%b %d, %Y %k:%M:%S') }}").getTime();
+								 var event = setInterval(function() {
+
+		var now = new Date().getTime();
+		var timeleft = countDownDate - now;
+		{# end countdown cel#}    
+		var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+		var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+		var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+
+		var daysDiv = document.getElementById("days");
+		var hoursDiv = document.getElementById("hours");
+		var minutesDiv = document.getElementById("minutes");
+		var secondsDiv = document.getElementById("seconds");
+		var end = document.getElementById("abEnd");
+
+		{# start number display options #}
+		daysDiv.innerHTML = days + "<br><span class='abDateText'>{{ module.date_configurator.days }}</span>"
+		hoursDiv.innerHTML = hours + "<br><span class='abDateText'>{{ module.date_configurator.hours }}</span>"
+		minutesDiv.innerHTML = minutes + "<br><span class='abDateText'>{{ module.date_configurator.minutes }}</span>"
+		secondsDiv.innerHTML = seconds + "<br><span class='abDateText'>{{ module.date_configurator.seconds }}</span>"
+		{# end number display options #}
+		{# start celebration message #}
+		if (timeleft < 0) {
+			clearInterval(event);
+			daysDiv.parentNode.removeChild(daysDiv);
+			hoursDiv.parentNode.removeChild(hoursDiv);
+			minutesDiv.parentNode.removeChild(minutesDiv);
+			secondsDiv.parentNode.removeChild(secondsDiv);
+			end.classList.remove("abHidden")
+			end.innerHTML = "{{ module.celebration_message }}";
+		}
+		{# end celebration message #}
+	}, 1000);
+
+</script>
+{% end_require_js %}
+{# end logic #}

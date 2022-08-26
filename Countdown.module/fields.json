@@ -1,0 +1,379 @@
+[
+  {
+    "allow_new_line": false,
+    "display_width": null,
+    "id": "358f5438-dae7-383e-3dae-7df917242a6a",
+    "label": "Headline",
+    "locked": false,
+    "name": "headline",
+    "required": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "validation_regex": ""
+  },
+  {
+    "type": "group",
+    "id": "27a3b951-6a42-a967-eb13-d3a8630e4332",
+    "label": "Date configurator",
+    "children": [
+      {
+        "type": "datetime",
+        "id": "f4f42d24-c5f6-f7de-9e16-088e8a0992af",
+        "step": 15,
+        "label": "Event Date",
+        "name": "event_date",
+        "default": 1662447600000
+      },
+      {
+        "type": "text",
+        "id": "7efe34b4-589e-8029-1c96-f0e3a8328e94",
+        "validation_regex": "",
+        "label": "Days",
+        "name": "days",
+        "default": "Days",
+        "help_text": "The text for days"
+      },
+      {
+        "type": "text",
+        "validation_regex": "",
+        "label": "Hours",
+        "name": "hours",
+        "default": "Hours",
+        "help_text": "The text for hours",
+        "oldId": "7efe34b4-589e-8029-1c96-f0e3a8328e94",
+        "id": "e3e527d9-6d2d-2c30-11f2-8df154fb029d"
+      },
+      {
+        "type": "text",
+        "validation_regex": "",
+        "label": "Minutes",
+        "name": "minutes",
+        "default": "Minutes",
+        "help_text": "The text for minutes",
+        "oldId": "e3e527d9-6d2d-2c30-11f2-8df154fb029d",
+        "id": "41a0e4a7-00a5-165b-cd74-6590bc11e5ae"
+      },
+      {
+        "type": "text",
+        "validation_regex": "",
+        "label": "Seconds",
+        "name": "seconds",
+        "default": "Seconds",
+        "help_text": "The text for seconds",
+        "oldId": "41a0e4a7-00a5-165b-cd74-6590bc11e5ae",
+        "id": "d58c23f9-ed78-8151-2539-2111d7c7e8e2"
+      }
+    ],
+    "name": "date_configurator",
+    "default": {
+      "event_date": 1662447600000,
+      "days": "Days",
+      "hours": "Hours",
+      "minutes": "Minutes",
+      "seconds": "Seconds"
+    }
+  },
+  {
+    "type": "text",
+    "id": "382a5cac-c07e-5fae-b6ea-9606b7511fd0",
+    "validation_regex": "",
+    "label": "Celebration message",
+    "name": "celebration_message",
+    "show_emoji_picker": true,
+    "default": "We're live!"
+  },
+  {
+    "type": "group",
+    "isNew": false,
+    "name": "style",
+    "label": "Style",
+    "tab": "STYLE",
+    "id": "6af15077-a844-59a7-0ee5-f1e869c21017",
+    "children": [
+      {
+        "type": "boolean",
+        "id": "75184b89-67df-bba0-b4ce-4d0d99a21bb0",
+        "default": true,
+        "display": "toggle",
+        "label": "Overwrite font settings",
+        "name": "overwrite_font_settings",
+        "help_text": "If enabled this will overwrite the font settings set in the theme"
+      },
+      {
+        "type": "font",
+        "default": {
+          "styles": {},
+          "variant": "700",
+          "font": "Montserrat",
+          "fallback": "sans-serif",
+          "font_set": "GOOGLE",
+          "size": 42,
+          "size_unit": "px"
+        },
+        "label": "Text font settings",
+        "name": "text_font_settings",
+        "visibility": {
+          "controlling_field": "75184b89-67df-bba0-b4ce-4d0d99a21bb0",
+          "operator": "EQUAL",
+          "controlling_value_regex": "true"
+        },
+        "oldId": "9a21afa6-a73d-d24c-d8d0-0d637616c16a",
+        "id": "778b2baa-844f-ae3e-4372-7cf0c08fd854"
+      },
+      {
+        "type": "font",
+        "id": "9a21afa6-a73d-d24c-d8d0-0d637616c16a",
+        "default": {
+          "styles": {},
+          "variant": "regular",
+          "font": "Allerta Stencil",
+          "fallback": "sans-serif",
+          "font_set": "GOOGLE",
+          "size": 42,
+          "size_unit": "px"
+        },
+        "label": "Number font settings ",
+        "name": "number_font_settings",
+        "visibility": {
+          "controlling_field": "75184b89-67df-bba0-b4ce-4d0d99a21bb0",
+          "operator": "EQUAL",
+          "controlling_value_regex": "true"
+        }
+      },
+      {
+        "type": "boolean",
+        "id": "dbca91c7-b8c1-b388-2a75-57d0e6ebc457",
+        "default": true,
+        "display": "toggle",
+        "label": "Add background",
+        "name": "add_background"
+      },
+      {
+        "type": "group",
+        "id": "b462e723-c459-df16-ff1e-6d54cdf3897a",
+        "label": "Background options",
+        "children": [
+          {
+            "type": "choice",
+            "id": "9814081f-e967-c07f-779c-476376bec4d1",
+            "display": "radio",
+            "choices": [
+              [
+                "color",
+                "Color"
+              ],
+              [
+                "gradient",
+                "Gradient"
+              ]
+            ],
+            "label": "Background type",
+            "name": "background_type",
+            "default": "gradient"
+          },
+          {
+            "type": "gradient",
+            "id": "bd111cf3-0165-585d-3546-51a30664e82a",
+            "label": "Background gradient",
+            "name": "gradient",
+            "visibility": {
+              "controlling_field": "9814081f-e967-c07f-779c-476376bec4d1",
+              "operator": "EQUAL",
+              "controlling_value_regex": "gradient"
+            },
+            "default": {
+              "colors": [
+                {
+                  "color": {
+                    "r": 2,
+                    "g": 10,
+                    "b": 16,
+                    "a": 1
+                  }
+                },
+                {
+                  "color": {
+                    "r": 53,
+                    "g": 59,
+                    "b": 64,
+                    "a": 1
+                  }
+                }
+              ],
+              "side_or_corner": {
+                "verticalSide": "TOP",
+                "horizontalSide": "LEFT"
+              }
+            }
+          },
+          {
+            "type": "color",
+            "id": "dd32c654-aaab-aea3-0503-bfa60fb5c824",
+            "default": {
+              "color": "#020a10",
+              "opacity": 100
+            },
+            "label": "Background color",
+            "name": "background_color",
+            "visibility": {
+              "controlling_field": "9814081f-e967-c07f-779c-476376bec4d1",
+              "operator": "EQUAL",
+              "controlling_value_regex": "color"
+            }
+          },
+          {
+            "type": "spacing",
+            "id": "1497be71-62a3-9130-5623-574ff8a99ed6",
+            "label": "Spacing",
+            "name": "spacing",
+            "default": {
+              "padding": {
+                "top": {
+                  "value": 42,
+                  "units": "px"
+                },
+                "bottom": {
+                  "value": 42,
+                  "units": "px"
+                },
+                "left": {
+                  "value": 42,
+                  "units": "px"
+                },
+                "right": {
+                  "value": 42,
+                  "units": "px"
+                }
+              }
+            }
+          }
+        ],
+        "name": "background_options",
+        "default": {
+          "background_type": "gradient",
+          "gradient": {
+            "colors": [
+              {
+                "color": {
+                  "r": 2,
+                  "g": 10,
+                  "b": 16,
+                  "a": 1
+                }
+              },
+              {
+                "color": {
+                  "r": 53,
+                  "g": 59,
+                  "b": 64,
+                  "a": 1
+                }
+              }
+            ],
+            "side_or_corner": {
+              "verticalSide": "TOP",
+              "horizontalSide": "LEFT"
+            }
+          },
+          "background_color": {
+            "color": "#020a10",
+            "opacity": 100
+          },
+          "spacing": {
+            "padding": {
+              "top": {
+                "value": 42,
+                "units": "px"
+              },
+              "bottom": {
+                "value": 42,
+                "units": "px"
+              },
+              "left": {
+                "value": 42,
+                "units": "px"
+              },
+              "right": {
+                "value": 42,
+                "units": "px"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "default": {
+      "overwrite_font_settings": true,
+      "text_font_settings": {
+        "styles": {},
+        "variant": "700",
+        "font": "Montserrat",
+        "fallback": "sans-serif",
+        "font_set": "GOOGLE",
+        "size": 42,
+        "size_unit": "px"
+      },
+      "number_font_settings": {
+        "styles": {},
+        "variant": "regular",
+        "font": "Allerta Stencil",
+        "fallback": "sans-serif",
+        "font_set": "GOOGLE",
+        "size": 42,
+        "size_unit": "px"
+      },
+      "add_background": true,
+      "background_options": {
+        "background_type": "gradient",
+        "gradient": {
+          "colors": [
+            {
+              "color": {
+                "r": 2,
+                "g": 10,
+                "b": 16,
+                "a": 1
+              }
+            },
+            {
+              "color": {
+                "r": 53,
+                "g": 59,
+                "b": 64,
+                "a": 1
+              }
+            }
+          ],
+          "side_or_corner": {
+            "verticalSide": "TOP",
+            "horizontalSide": "LEFT"
+          }
+        },
+        "background_color": {
+          "color": "#020a10",
+          "opacity": 100
+        },
+        "spacing": {
+          "padding": {
+            "top": {
+              "value": 42,
+              "units": "px"
+            },
+            "bottom": {
+              "value": 42,
+              "units": "px"
+            },
+            "left": {
+              "value": 42,
+              "units": "px"
+            },
+            "right": {
+              "value": 42,
+              "units": "px"
+            }
+          }
+        }
+      }
+    }
+  }
+]

@@ -1,0 +1,49 @@
+.abCountdownWrapper{
+	display: flex;
+	flex-direction: column;
+	justify-content:center;
+	max-width:500px;
+	margin:0 auto;
+}
+
+.abCountdownWrapper h1{
+	text-align:center;
+}
+
+.abCountdownContent{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.abCountdownContent .abSeperateDate{
+	text-align:center;
+}
+
+.abCountdownContent .abDate{		
+	display:block;		
+}
+
+#abEnd{
+	width:100%;
+	text-align:center;
+}
+
+.abHidden{
+	display:none;
+	height:0;
+	width:0;
+}
+
+@media screen and (max-width:480px){
+	.abCountdownContent{
+		max-width:460px;
+	}
+
+	.abCountdownContent .abDate{
+		font-size:2rem;
+	}
+}
