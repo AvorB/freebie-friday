@@ -108,7 +108,8 @@
           "fallback": "sans-serif",
           "font_set": "GOOGLE",
           "size": 42,
-          "size_unit": "px"
+          "size_unit": "px",
+          "color": "#f8fcff"
         },
         "label": "Text font settings",
         "name": "text_font_settings",
@@ -130,7 +131,8 @@
           "fallback": "sans-serif",
           "font_set": "GOOGLE",
           "size": 42,
-          "size_unit": "px"
+          "size_unit": "px",
+          "color": "#2196f3"
         },
         "label": "Number font settings ",
         "name": "number_font_settings",
@@ -311,7 +313,8 @@
         "fallback": "sans-serif",
         "font_set": "GOOGLE",
         "size": 42,
-        "size_unit": "px"
+        "size_unit": "px",
+        "color": "#f8fcff"
       },
       "number_font_settings": {
         "styles": {},
@@ -320,7 +323,8 @@
         "fallback": "sans-serif",
         "font_set": "GOOGLE",
         "size": 42,
-        "size_unit": "px"
+        "size_unit": "px",
+        "color": "#2196f3"
       },
       "add_background": true,
       "background_options": {
