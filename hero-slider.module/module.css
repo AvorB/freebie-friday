@@ -1,0 +1,26 @@
+.swiper-slide.image{
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position: center center;
+	height: auto;
+	max-width:100vw;
+	overflow:hidden;
+}
+
+.abSlider.topLine{
+	font-size:.75rem;
+}
+
+.abSlider.topLine, 
+.swiper-slide h1, 
+.swiper-slide h2, 
+.swiper-slide h3, 
+.abSliderContent{
+	width:80%;
+	display: inline-flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+}

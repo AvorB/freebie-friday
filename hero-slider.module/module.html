@@ -1,0 +1,152 @@
+{# start styling #}
+{% require_css %}
+{# Tipp for performance: if you plan to use this module multiple times on one page consider to copy/paste everything from the file below to a new CSS file and link it to this module or cut/paste it into your base.html file. By doing so this file will be loaded only once and not with each instance of the module. #}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" /> 
+
+<style>
+	.swiper.{{ name }} .swiper-slide{
+		{{ module.style.spacing.css }};
+		display:flex;
+		flex-direction:column;
+		flex-wrap: nowrap;
+		align-content: center;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.swiper.{{ name }} .swiper-button-next, .swiper.{{ name }} .swiper-button-prev{
+		color: {{ module.style.highlight_color.css }};
+	}
+
+	.swiper.{{ name }} .swiper-pagination-bullet{
+		background-color:{{ module.style.pagination_color.color }};
+		opacity: {{ module.style.pagination_color.opacity/100}};
+	}
+	.swiper.{{ name }} .swiper-pagination-bullet-active{
+		background-color:{{ module.style.highlight_color.color }};
+		opacity:{{ module.style.highlight_color.opacity/100 }};
+	}
+	
+	.swiper-button-next, .swiper-button-prev{
+		width:calc(var(--swiper-navigation-size)/ {{ module.style.arrow_size }}px * 27);
+		height:{{ module.style.arrow_size }}px
+	}
+	.swiper-button-next:after, .swiper-button-prev:after{
+		font-size:{{ module.style.arrow_size }}px;
+	}
+	
+	{%- for single_slide in module.slides %}
+	.swiper.{{ name }} .swiper-slide.slide-{{loop.index}}{
+		{% if single_slide.background_style == "image" %}
+		background-image:url('{{single_slide.background_image.src}}');
+			{% else %}
+			background-color:rgba({{single_slide.background_color.color|convert_rgb}}, {{ single_slide.background_color.opacity/100 }})
+			}
+	{% endif %}
+
+	{% unless single_slide.headline == "" %}
+	.swiper.{{ name }} .swiper-slide.slide-{{loop.index}} {{ single_slide.headline_size }}{
+		color:rgb({{ single_slide.headline_color.color|convert_rgb }},{{ single_slide.headline_color.opacity/100 }});
+	}
+	{% endunless %}
+
+	{% unless single_slide.top_line == "" %}
+	.swiper.{{ name }} .swiper-slide.slide-{{loop.index}} .abSlider.topLine{
+		color:rgb({{ single_slide.top_line_color.color|convert_rgb }},{{ single_slide.top_line_color.opacity/100 }})
+
+	}
+	{% endunless %}
+	{% endfor %}
+
+
+
+</style>
+{% end_require_css %}
+{# end styling #}
+
+{# start module #}
+<div class="swiper {{ name }}">
+	<div class="swiper-wrapper">
+		{% for single_slide in module.slides %}
+		<div class="swiper-slide slide-{{ loop.index }}">
+			{# start top-line #}
+			{% unless single_slide.top_line == "" %}
+			<span class="abSlider topLine">
+				{{ single_slide.top_line }}
+			</span>
+			{% endunless %}
+			{# end top-line #}
+
+			{# start headline #}
+			{% unless single_slide.headline == "" %}
+			<{{ single_slide.headline_size }}>
+			{{ single_slide.headline }}
+			</{{ single_slide.headline_size }}>
+			{% endunless %}
+			{# end headline #}
+			{# start content #}
+			{% unless single_slide.content == "" %}
+			<div class="abSliderContent">
+				{{ single_slide.content }}
+			</div>
+			{% endunless %}
+			{# end content #}
+			{# start button #}
+			{% if single_slide.add_button %}
+			{% set href = single_slide.button.url.url.href %}
+			{% if single_slide.button.url.url.type is equalto "EMAIL_ADDRESS" %}
+			{% set href = "mailto:" + href %}
+			{% endif %}
+			<a href="{{ href }}" {% if single_slide.button.url.open_in_new_tab %} target="_blank"{% endif %}{% if single_slide.button.url.rel %} rel="{{ single_slide.button.url.rel }}"{% endif %}{% unless single_slide.button.class == "" %} class="{{ single_slide.button.class }}"{% endunless %}>
+				{{ single_slide.button.button_label }}
+			</a>
+			{% endif %}
+			{# end button #}
+		</div>
+		{% endfor %}
+	</div>
+	{# start arrow navigation #}
+	{% if module.slider_configuration.show_arrows %}
+	<div class="swiper-button-next"></div>
+	<div class="swiper-button-prev"></div>
+	{% endif %}
+	{# end arrow navigation #}
+	{# start pagination #}
+	{% if module.slider_configuration.show_arrows %}
+	<div class="swiper-pagination"></div>
+	{% endif %}
+	{# end pagination #}
+</div>
+{# end module #}
+
+{# start JS #}
+{% require_js %}
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script>
+	var swiper = new Swiper(".{{ name }}", {
+							{# start arrow navigation #}
+							{% if module.slider_configuration.show_arrows %}
+							navigation: {
+							nextEl: ".swiper-button-next",
+							prevEl: ".swiper-button-prev",
+							},
+							{% endif %}
+							{# end arrow navigation #}
+							{# start pagination #}
+							{% if module.slider_configuration.show_pagination %}
+							pagination: {
+							el: ".swiper-pagination",
+							},      
+							{% endif %}
+							{# end pagination #}
+							{# start keyboard control #}
+							{% if module.slider_configuration.show_pagination %}
+							keyboard: {
+							enabled: true,
+							},
+							{% endif %}
+							{# end keyboard control #}
+							});
+</script>
+{% end_require_js %}
+{# end JS #}
