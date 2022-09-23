@@ -1,0 +1,58 @@
+{# start macros #}
+{%- macro border_radius(border_radius) -%}
+    -webkit-border-radius: {{ border_radius }};
+       -moz-border-radius: {{ border_radius }};
+         -o-border-radius: {{ border_radius }};
+            border-radius: {{ border_radius }};
+{%- endmacro -%}
+{# end macros #}
+
+{# start CSS #}
+{% require_css %}
+<style>
+	.abTestimonialCard{
+		{{ module.style.spacing.css }}
+		background-color:{{ module.style.background_color.css }};
+		{{ border_radius('{{ module.style.border_radius }}px')}}
+		border-bottom: .25rem solid {{ module.style.highlight_color.css }};
+	}
+	.abTestimonialCard img.abTestimonialImage{
+		border: .5rem solid {{ module.style.background_color.css }};
+		{{ border_radius('128px')}}
+		top: calc( -{{ module.style.spacing.padding.top.value ~ module.style.spacing.padding.top.units }} - 64px - 5px);
+	}
+</style>
+{% end_require_css %}
+{# end CSS #}
+
+{# start module #}
+<div class="abTestimonialCard">
+	{# start image #}
+	{% if module.person_image.src %}
+	{% set loadingAttr = module.image_field.loading != 'disabled' ? 'loading="{{ module.image_field.loading }}"' : '' %}
+	<img src="{{ module.person_image.src }}" alt="{{ module.person_image.alt }}" class="abTestimonialImage" {{ loadingAttr }}>
+	{% endif %}
+	{# end image #}
+	{# start testimonial #}
+	{% unless module.testimonial == "" %}
+	<div class="abTestimonialText">
+        {{ module.testimonial }}
+	</div>
+	{% endunless %}
+	{# end testimonial #}
+	{# start user information #}
+	<div class="abTestimonialUserInformation">
+		{# start user name #}
+		{% unless module.user_name == "" %}
+			<span class="abTestimonialUserName">{{ module.user_name }}</span>
+		{% endunless %}
+		{# end user name #}
+		{# start user job title #}
+		{% unless module.user_job_title == "" %}
+			<span class="abTestimonialUserJobTitle">{{ module.user_job_title }}</span>
+		{% endunless %}
+		{# end user job title #}
+	</div>
+	{# end user information #}
+</div>
+{# end module #}

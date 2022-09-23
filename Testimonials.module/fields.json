@@ -1,0 +1,165 @@
+[ {
+  "id" : "1c75730d-6b7d-df3d-eb93-514c3eead616",
+  "name" : "style",
+  "display_width" : null,
+  "label" : "Style",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "016f240a-6ab3-dd8b-f2c1-9b0a442f435d",
+    "name" : "spacing",
+    "display_width" : null,
+    "label" : "Spacing",
+    "required" : false,
+    "locked" : false,
+    "visibility": {
+      "hidden_subfields": {
+        "margin": true
+      }
+    },
+    "type" : "spacing",
+    "default" : {
+      "padding" : {
+        "top" : {
+          "value" : 2,
+          "units" : "rem"
+        },
+        "bottom" : {
+          "value" : 2,
+          "units" : "rem"
+        },
+        "left" : {
+          "value" : 2,
+          "units" : "rem"
+        },
+        "right" : {
+          "value" : 2,
+          "units" : "rem"
+        }
+      }
+    }
+  }, {
+    "id" : "97db4466-f727-bd49-f82a-c80b9ea2df60",
+    "name" : "background_color",
+    "display_width" : null,
+    "label" : "Background-color",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "default" : {
+      "color" : "#edf7fe",
+      "opacity" : 100
+    }
+  }, {
+    "id" : "9d3ac892-1964-0ee5-44d1-b64e8f4e2ca2",
+    "name" : "highlight_color",
+    "display_width" : null,
+    "label" : "Highlight color",
+    "required" : false,
+    "locked" : false,
+    "type" : "color",
+    "default" : {
+      "color" : "#2196f3",
+      "opacity" : 100
+    }
+  }, {
+    "id" : "187f6641-e35d-1229-5f7c-7b9c40b872e9",
+    "name" : "border_radius",
+    "display_width" : null,
+    "label" : "Border radius",
+    "required" : false,
+    "locked" : false,
+    "display" : "text",
+    "min" : 0,
+    "step" : 1,
+    "suffix" : "px",
+    "type" : "number",
+    "default" : 16
+  } ],
+  "tab" : "STYLE",
+  "expanded" : false,
+  "type" : "group",
+  "default" : {
+    "spacing" : {
+      "padding" : {
+        "top" : {
+          "value" : 2,
+          "units" : "rem"
+        },
+        "bottom" : {
+          "value" : 2,
+          "units" : "rem"
+        },
+        "left" : {
+          "value" : 2,
+          "units" : "rem"
+        },
+        "right" : {
+          "value" : 2,
+          "units" : "rem"
+        }
+      }
+    },
+    "background_color" : {
+      "color" : "#edf7fe",
+      "opacity" : 100
+    },
+    "highlight_color" : {
+      "color" : "#2196f3",
+      "opacity" : 100
+    },
+    "border_radius" : 16
+  }
+}, {
+  "id" : "1c42d05d-84b2-d30a-af19-f6de65d4b1fa",
+  "name" : "person_image",
+  "display_width" : null,
+  "label" : "Person image",
+  "help_text" : "recommended size: 128px square",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : false,
+  "show_loading" : true,
+  "type" : "image",
+  "default" : {
+    "size_type" : "auto",
+    "src" : "https://via.placeholder.com/128",
+    "alt" : "Placeholder - please change before use",
+    "loading" : "lazy"
+  }
+}, {
+  "id" : "9ac1a670-b7d5-d576-6d61-c2b1f37e6f86",
+  "name" : "testimonial",
+  "display_width" : null,
+  "label" : "Testimonial",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "enable_features": ["standard_emphasis", "glyphs", "personalize", "visual_blocks", "source_code"],
+  "default" : "<p><span>Anton Bujanowski has the best Modules around! </span>Thanks to this module, we've just launched our testimonial page!</p>"
+}, {
+  "id" : "82b9f089-b7a9-b524-93da-a1afd5b18846",
+  "name" : "user_name",
+  "display_width" : null,
+  "label" : "User name",
+  "required" : true,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "Isabella Robinson"
+}, {
+  "id" : "4bf3f5b2-d087-02a1-eacd-f60643f6d74c",
+  "name" : "user_job_title",
+  "display_width" : null,
+  "label" : "User Job title",
+  "required" : true,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text",
+  "default" : "Chief Marketing Manager"
+} ]
