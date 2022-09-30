@@ -1,0 +1,47 @@
+.abStepsWrapper{
+	display: flex;
+	flex-wrap:wrap;
+	justify-content: space-between;
+	align-items: center;
+	align-content: center;
+}
+
+.abSingleStep{
+	display:flex;
+	flex-direction:row;
+}
+
+.abStepsNumber, .abStepsIcon{
+	margin-bottom:1.25rem;
+}
+
+@media screen and (max-width:480px){
+	.abStepsWrapper, .abSingleStep{
+		flex-direction:column;
+	}
+
+	img.abStepsIcon, .abStepsNumber{
+		display:block;
+		margin:0 auto;
+		text-align:center;
+	}
+}
+
+.abStepsNumber{
+	font-size:2.5rem;
+	font-weight:bold;
+}
+@media screen and (min-width:481px){
+.abContentWrapper{
+	margin-left:1rem;
+}
+}
+.abStepsHeadline{
+	font-size:1.75rem;
+	line-height:1.5;
+	font-weight:bold;
+}
+
+.abStepsContent{
+	display:block;
+}

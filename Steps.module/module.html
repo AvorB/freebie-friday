@@ -1,0 +1,48 @@
+{# start styling #}
+{% require_head %}
+<style>
+	.abSingleStep{
+		{{ module.style.spacing.css }}
+	}
+	.abStepsNumber{
+		color:{{ module.style.highlight_color.css }}
+	}
+	{% if module.icon_type == "icon-image" %}
+	img.abStepsIcon{
+		width:{{ module.style.icon_size }}px;
+	}
+	{% endif %}
+</style>
+{% end_require_head %}
+{# end styling #}
+
+{# start module #}
+<section class="abStepsWrapper">
+	{# start single step #}
+	{% for single_step in module.steps %}
+	<div class="abSingleStep">
+		{# start number/icon #}
+		{% if module.icon_type == "number" %}
+		<span class="abStepsNumber">{{ loop.index }}</span>
+		{% elif module.icon_type == "icon-image" %}
+		{% set loadingAttr = single_step.icon.loading != 'disabled' ? 'loading="{{ single_step.icon.loading }}"' : '' %}
+		<img src="{{ single_step.icon.src }}" alt="{{ single_step.icon.alt }}" {{ loadingAttr }} class="abStepsIcon">
+		{% endif %}
+		{# end number/icon #}
+		{# start text #}
+		<div class="abContentWrapper">
+		{% unless single_step.headline == "" %}
+		<span class="abStepsHeadline">
+			{{ single_step.headline }}
+		</span>
+		{% endunless %}
+		{% unless single_step.content == "" %}
+		<span class="abStepsContent">{{ single_step.content }}</span>
+		{% endunless %}
+			</div>
+		{# end text #}
+	</div>
+	{% endfor %}
+	{# end single step #}
+</section>
+{# end module #}

@@ -1,0 +1,218 @@
+[
+  {
+    "id": "99ab53ca-fd3d-e0be-8866-a3af825d5065",
+    "name": "icon_type",
+    "display_width": null,
+    "label": "Icon type",
+    "help_text": "This will enable icon/image for each step. If you select \"number\" the number will be generated automatically",
+    "required": false,
+    "locked": false,
+    "display": "radio",
+    "choices": [
+      [
+        "icon-image",
+        "Icon/Image"
+      ],
+      [
+        "number",
+        "Number"
+      ]
+    ],
+    "type": "choice",
+    "default": "number"
+  },
+  {
+    "id": "d7e08812-4dd0-2502-fdd7-d5192a77591a",
+    "name": "style",
+    "display_width": null,
+    "label": "Style",
+    "required": false,
+    "locked": false,
+    "children": [
+      {
+        "id": "ecc85526-5290-a626-e17c-9f26161e88ea",
+        "name": "spacing",
+        "display_width": null,
+        "label": "Spacing",
+        "required": false,
+        "locked": false,
+        "type": "spacing",
+        "default": {
+          "padding": {
+            "top": {
+              "value": 2,
+              "units": "rem"
+            },
+            "bottom": {
+              "value": 2,
+              "units": "rem"
+            },
+            "left": {
+              "value": 2,
+              "units": "rem"
+            },
+            "right": {
+              "value": 2,
+              "units": "rem"
+            }
+          }
+        }
+      },
+      {
+        "id": "c43252e9-b498-c82a-57da-17a8f9e06366",
+        "name": "highlight_color",
+        "display_width": null,
+        "label": "Highlight color",
+        "required": false,
+        "locked": false,
+        "type": "color",
+        "default": {
+          "color": "#2196f3",
+          "opacity": 100
+        }
+      },
+      {
+        "id": "5c971643-8606-b96e-4cf1-f3e331c12085",
+        "name": "icon_size",
+        "display_width": null,
+        "label": "Icon size",
+        "required": false,
+        "locked": false,
+        "visibility": {
+          "controlling_field": "99ab53ca-fd3d-e0be-8866-a3af825d5065",
+          "controlling_value_regex": "icon-image",
+          "operator": "EQUAL",
+          "access": null,
+          "hidden_subfields": null
+        },
+        "display": "text",
+        "step": 1,
+        "type": "number",
+        "default": 96
+      }
+    ],
+    "tab": "STYLE",
+    "expanded": false,
+    "type": "group",
+    "visibility": {
+      "hidden_subfields": {
+        "margin": true
+      }
+    },
+    "default": {
+      "spacing": {
+        "padding": {
+          "top": {
+            "value": 2,
+            "units": "rem"
+          },
+          "bottom": {
+            "value": 2,
+            "units": "rem"
+          },
+          "left": {
+            "value": 2,
+            "units": "rem"
+          },
+          "right": {
+            "value": 2,
+            "units": "rem"
+          }
+        }
+      },
+      "highlight_color": {
+        "color": "#2196f3",
+        "opacity": 100
+      },
+      "icon_size": 96
+    }
+  },
+  {
+    "id": "8b9cf13d-322f-2ae9-1a53-2b85e2ef4bff",
+    "name": "steps",
+    "display_width": null,
+    "label": "Steps",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+      "min": 1,
+      "max": null,
+      "sorting_label_field": "32320fa7-cb2c-3cf8-2e98-72ca23c81e1f",
+      "default": 1
+    },
+    "children": [
+      {
+        "id": "1839bf20-2901-084d-e20c-3fcdde046404",
+        "name": "icon",
+        "display_width": null,
+        "label": "Icon",
+        "required": false,
+        "locked": false,
+        "visibility": {
+          "controlling_field": "99ab53ca-fd3d-e0be-8866-a3af825d5065",
+          "controlling_value_regex": "icon-image",
+          "operator": "EQUAL",
+          "access": null,
+          "hidden_subfields": null
+        },
+        "responsive": true,
+        "resizable": false,
+        "show_loading": true,
+        "type": "image",
+        "default": {
+          "size_type": "auto",
+          "src": "",
+          "alt": null,
+          "loading": "lazy"
+        }
+      },
+      {
+        "id": "32320fa7-cb2c-3cf8-2e98-72ca23c81e1f",
+        "name": "headline",
+        "display_width": null,
+        "label": "Headline",
+        "required": false,
+        "locked": false,
+        "validation_regex": "",
+        "allow_new_line": false,
+        "show_emoji_picker": false,
+        "type": "text",
+        "default": "This is a cool headline"
+      },
+      {
+        "id": "983df456-cccb-d4e4-4102-1f30d05dca53",
+        "name": "content",
+        "display_width": null,
+        "label": "Content",
+        "required": false,
+        "locked": false,
+        "type": "richtext",
+        "enabled_features": [
+          "standard_emphasis",
+          "advanced_emphasis",
+          "personalize",
+          "smiley",
+          "link",
+          "nonbreaking_space",
+          "source_code",
+          "visual_blocks",
+          "charmap"
+        ]
+      }
+    ],
+    "tab": "CONTENT",
+    "expanded": false,
+    "type": "group",
+    "default": [
+      {
+        "icon": {
+          "size_type": "auto",
+          "src": "",
+          "alt": null,
+          "loading": "lazy"
+        },
+        "headline": "This is a cool headline"
+      }
+    ]
+  }
+]
