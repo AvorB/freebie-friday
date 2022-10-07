@@ -1,0 +1,32 @@
+{# start styling #}
+{% unless module.headline_style == "none" %}
+{% require_css %}
+<style>
+	.{{ name }}.h1{
+		{{ module.style.h1.css }}
+	}
+	.{{ name }}.h2{
+		{{ module.style.h2.css }}
+	}
+	.{{ name }}.h3{
+		{{ module.style.h3.css }}
+	}
+	.{{ name }}.h4{
+		{{ module.style.h4.css }}
+	}
+	.{{ name }}.h5{
+		{{ module.style.h5.css }}
+	}
+	.{{ name }}.h6{
+		{{ module.style.h6.css }}
+	}
+</style>
+{% end_require_css %}
+{% endunless %}
+{# end styling #}
+
+{# start module #}
+<{{ module.headline_size }}{% unless module.headline_style == "none" %} class="{{name}} {{ module.headline_style }}"{% endunless %}>
+	{{ module.headline }}
+</{{ module.headline_size }}>
+{# end module #}

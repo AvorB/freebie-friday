@@ -1,0 +1,232 @@
+[ {
+  "id" : "911ad931-ea40-4f8a-15f1-7a41e32f751b",
+  "name" : "headline",
+  "display_width" : null,
+  "label" : "Headline",
+  "required" : false,
+  "locked" : false,
+  "validation_regex" : "",
+  "allow_new_line" : false,
+  "show_emoji_picker" : false,
+  "type" : "text"
+}, {
+  "id" : "2af6c148-37d1-5ee7-564e-ccbf8524b30b",
+  "name" : "headline_size",
+  "display_width" : null,
+  "label" : "Headline size",
+  "help_text" : "This option will change the h-tag. <strong>Important for SEO </strong> ",
+  "required" : false,
+  "locked" : false,
+  "visibility" : {
+    "controlling_field" : "911ad931-ea40-4f8a-15f1-7a41e32f751b",
+    "controlling_value_regex" : null,
+    "operator" : null,
+    "access" : null,
+    "hidden_subfields" : null
+  },
+  "display" : "select",
+  "choices" : [ [ "h1", "h1" ], [ "h2", "h2" ], [ "h3", "h3" ], [ "h4", "h4" ], [ "h5", "h5" ], [ "h6", "h6" ] ],
+  "type" : "choice",
+  "default" : "h2"
+}, {
+  "id" : "ed2f6e58-2436-7262-ab0e-4efd76da1068",
+  "name" : "style",
+  "display_width" : null,
+  "label" : "Style",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "3f450c37-af6f-8d2a-ba22-097078957cf9",
+    "name" : "headline_styling_option",
+    "display_width" : null,
+    "label" : "Headline styling option",
+    "help_text" : "If you have CSS classes according to the H-tags select \"CSS\". If you want style the H-tags in the module, select \"module\"",
+    "required" : false,
+    "locked" : false,
+    "display" : "radio",
+    "choices" : [ [ "css", "CSS" ], [ "module", "Module" ] ],
+    "type" : "choice",
+    "default" : "module"
+  }, {
+    "id" : "e4c0f737-37c8-6b0f-4126-8953c1bc3e7d",
+    "name" : "h1",
+    "display_width" : null,
+    "label" : "h1",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "3f450c37-af6f-8d2a-ba22-097078957cf9",
+      "controlling_value_regex" : "module",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "load_external_fonts" : true,
+    "type" : "font",
+    "default" : {
+      "size" : 4,
+      "color" : "#2196f3",
+      "size_unit" : "rem"
+    }
+  }, {
+    "id" : "cba568e2-38d4-3843-f0cc-23042e243e57",
+    "name" : "h2",
+    "display_width" : null,
+    "label" : "h2",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "3f450c37-af6f-8d2a-ba22-097078957cf9",
+      "controlling_value_regex" : "module",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "load_external_fonts" : true,
+    "type" : "font",
+    "default" : {
+      "size" : 3,
+      "size_unit" : "rem",
+      "color" : "#2196f3"
+    }
+  }, {
+    "id" : "8fe9c1fc-1bca-fdb0-4879-18b52b16b789",
+    "name" : "h3",
+    "display_width" : null,
+    "label" : "h3",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "3f450c37-af6f-8d2a-ba22-097078957cf9",
+      "controlling_value_regex" : "module",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "load_external_fonts" : true,
+    "type" : "font",
+    "default" : {
+      "size" : 2.25,
+      "size_unit" : "rem",
+      "color" : "#2196f3"
+    }
+  }, {
+    "id" : "38666fb3-d461-d4b8-4dd8-4e563fe580bb",
+    "name" : "h4",
+    "display_width" : null,
+    "label" : "h4",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "3f450c37-af6f-8d2a-ba22-097078957cf9",
+      "controlling_value_regex" : "module",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "load_external_fonts" : true,
+    "type" : "font",
+    "default" : {
+      "size" : 1.75,
+      "size_unit" : "rem",
+      "color" : "#2196f3"
+    }
+  }, {
+    "id" : "c6746ae7-a305-8bad-ef18-d9bb294740ec",
+    "name" : "h5",
+    "display_width" : null,
+    "label" : "h5",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "3f450c37-af6f-8d2a-ba22-097078957cf9",
+      "controlling_value_regex" : "module",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "load_external_fonts" : true,
+    "type" : "font",
+    "default" : {
+      "color" : "#2196f3",
+      "size" : 1.5,
+      "size_unit" : "rem"
+    }
+  }, {
+    "id" : "5cf571fe-1361-6b23-62b8-eefe9cae5c7d",
+    "name" : "h6",
+    "display_width" : null,
+    "label" : "h6",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : "3f450c37-af6f-8d2a-ba22-097078957cf9",
+      "controlling_value_regex" : "module",
+      "operator" : "EQUAL",
+      "access" : null,
+      "hidden_subfields" : null
+    },
+    "load_external_fonts" : true,
+    "type" : "font",
+    "default" : {
+      "size" : 1.125,
+      "size_unit" : "rem",
+      "color" : "#2196f3"
+    }
+  } ],
+  "tab" : "STYLE",
+  "expanded" : false,
+  "type" : "group",
+  "default" : {
+    "headline_styling_option" : "module",
+    "h1" : {
+      "size" : 4,
+      "color" : "#2196f3",
+      "size_unit" : "rem"
+    },
+    "h2" : {
+      "size" : 3,
+      "size_unit" : "rem",
+      "color" : "#2196f3"
+    },
+    "h3" : {
+      "size" : 2.25,
+      "size_unit" : "rem",
+      "color" : "#2196f3"
+    },
+    "h4" : {
+      "size" : 1.75,
+      "size_unit" : "rem",
+      "color" : "#2196f3"
+    },
+    "h5" : {
+      "color" : "#2196f3",
+      "size" : 1.5,
+      "size_unit" : "rem"
+    },
+    "h6" : {
+      "size" : 1.125,
+      "size_unit" : "rem",
+      "color" : "#2196f3"
+    }
+  }
+}, {
+  "id" : "43d54c8e-0868-dda7-5809-d50326c3e16b",
+  "name" : "headline_style",
+  "display_width" : null,
+  "label" : "Headline style",
+  "help_text" : "This option will change only the styling and won't affect SEO",
+  "required" : false,
+  "locked" : false,
+  "visibility" : {
+    "controlling_field" : "911ad931-ea40-4f8a-15f1-7a41e32f751b",
+    "controlling_value_regex" : null,
+    "operator" : null,
+    "access" : null,
+    "hidden_subfields" : null
+  },
+  "display" : "select",
+  "choices" : [ [ "none", "None" ], [ "h1", "h1" ], [ "h2", "h2" ], [ "h3", "h3" ], [ "h4", "h4" ], [ "h5", "h5" ], [ "h6", "h6" ] ],
+  "type" : "choice",
+  "default" : "none"
+} ]
