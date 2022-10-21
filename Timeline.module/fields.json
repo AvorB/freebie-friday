@@ -1,0 +1,314 @@
+[
+  {
+    "choices": [
+      [
+        "year",
+        "Year"
+      ],
+      [
+        "month/year",
+        "Month/Year"
+      ],
+      [
+        "month_year",
+        "Month.Year"
+      ]
+    ],
+    "default": "month/year",
+    "display": "radio",
+    "display_width": null,
+    "id": "504c7644-d9d8-e81e-4002-32fa6a5906b0",
+    "label": "Dateformat",
+    "locked": false,
+    "multiple": false,
+    "name": "dateformat",
+    "reordering_enabled": true,
+    "required": false,
+    "type": "choice",
+    "inline_help_text": ""
+  },
+  {
+    "default": true,
+    "display": "toggle",
+    "display_width": null,
+    "id": "c1533b25-bac6-588e-589b-5dbbf76a6a17",
+    "label": "Change directions",
+    "locked": false,
+    "name": "change_directions",
+    "required": false,
+    "type": "boolean"
+  },
+  {
+    "children": [
+      {
+        "allow_new_line": false,
+        "display_width": null,
+        "id": "7aadc1c6-7e7b-f77e-88c8-fb8d5a77bc76",
+        "label": "Headline",
+        "locked": false,
+        "name": "headline",
+        "required": false,
+        "show_emoji_picker": false,
+        "type": "text",
+        "validation_regex": ""
+      },
+      {
+        "choices": [
+          [
+            "year",
+            "One year"
+          ],
+          [
+            "years",
+            "Two years"
+          ],
+          [
+            "year_text",
+            "One year & text"
+          ]
+        ],
+        "default": "years",
+        "display": "radio",
+        "display_width": null,
+        "id": "da1fd1ea-c2b0-0af0-56ba-dc3cdd9da9c6",
+        "label": "Date format",
+        "locked": false,
+        "multiple": false,
+        "name": "date_format",
+        "reordering_enabled": true,
+        "required": false,
+        "type": "choice"
+      },
+      {
+        "allow_new_line": false,
+        "display_width": null,
+        "id": "5febbf3b-061f-19c8-13c7-c30d0dfdee3d",
+        "label": "Subline",
+        "locked": false,
+        "name": "subline",
+        "required": false,
+        "show_emoji_picker": true,
+        "type": "text",
+        "validation_regex": ""
+      },
+      {
+        "default": 1663279200000,
+        "display_width": null,
+        "id": "019eafe2-1a55-fff8-9b9f-cd4486e457b1",
+        "label": "First date",
+        "locked": false,
+        "name": "first_date",
+        "required": true,
+        "type": "date"
+      },
+      {
+        "default": 1629237600000,
+        "display_width": null,
+        "id": "d11c2229-99c1-fb7c-ebfb-57fe7ee9cd4d",
+        "label": "Second date",
+        "locked": false,
+        "name": "second_date",
+        "required": false,
+        "type": "date",
+        "visibility": {
+          "controlling_field": "da1fd1ea-c2b0-0af0-56ba-dc3cdd9da9c6",
+          "controlling_value_regex": "years",
+          "operator": "EQUAL"
+        }
+      },
+      {
+        "allow_new_line": false,
+        "default": "now",
+        "display_width": null,
+        "id": "913f5b49-18fa-3cbe-93e3-7d235746cc18",
+        "label": "text",
+        "locked": false,
+        "name": "text",
+        "required": false,
+        "show_emoji_picker": false,
+        "type": "text",
+        "validation_regex": "",
+        "visibility": {
+          "controlling_field": "da1fd1ea-c2b0-0af0-56ba-dc3cdd9da9c6",
+          "controlling_value_regex": "year_text",
+          "operator": "EQUAL"
+        }
+      }
+    ],
+    "default": [
+      {
+        "date_format": "years",
+        "first_year": 1663279200000,
+        "second_date": 1629237600000,
+        "text": "now"
+      },
+      {
+        "date_format": "years",
+        "first_year": 1663279200000,
+        "second_date": 1629237600000,
+        "text": "now"
+      },
+      {
+        "date_format": "years",
+        "first_year": 1663279200000,
+        "second_date": 1629237600000,
+        "text": "now"
+      }
+    ],
+    "display_width": null,
+    "expanded": false,
+    "id": "4984e235-7033-a5f7-cb78-bfa9f5d2b648",
+    "label": "Timeline item",
+    "locked": false,
+    "name": "timeline_item",
+    "occurrence": {
+      "default": 3,
+      "min": 1,
+      "sorting_label_field": "7aadc1c6-7e7b-f77e-88c8-fb8d5a77bc76"
+    },
+    "required": false,
+    "tab": "CONTENT",
+    "type": "group"
+  },
+  {
+    "type": "group",
+    "isNew": false,
+    "name": "style",
+    "label": "Style",
+    "tab": "STYLE",
+    "id": "0347903a-54d6-38b4-0a99-fc4a97080efe",
+    "children": [
+      {
+        "type": "number",
+        "id": "793a1880-6a2b-d39b-73a5-ab4d22c4ed09",
+        "display": "text",
+        "step": 1,
+        "label": "Timeline width",
+        "name": "timeline_width",
+        "suffix": "px",
+        "min": 300,
+        "default": 600,
+        "help_text": "Set the max-width of the timeline"
+      },
+      {
+        "type": "spacing",
+        "id": "8999eb9b-5062-330d-f853-addccc2a05e9",
+        "label": "Spacing",
+        "name": "date_spacing",
+        "default": {
+          "margin": {
+            "top": {
+              "value": 1,
+              "units": "rem"
+            },
+            "bottom": {
+              "value": 1,
+              "units": "rem"
+            }
+          }
+        },
+        "visibility": {
+          "hidden_subfields": {
+            "padding": true
+          }
+        },
+        "help_text": "used for spacing between each date"
+      },
+      {
+        "type": "boolean",
+        "id": "b670fd47-fa9e-3bfd-eb7d-7f46aeb8d9bb",
+        "default": true,
+        "display": "toggle",
+        "label": "Use card layout",
+        "name": "use_card_layout",
+        "help_text": "enable for card optic"
+      },
+      {
+        "type": "spacing",
+        "id": "a0f4931c-fb48-80de-390c-dac9c20da1e8",
+        "label": "card spacing",
+        "name": "card_spacing",
+        "default": {
+          "padding": {
+            "top": {
+              "value": 2,
+              "units": "rem"
+            },
+            "bottom": {
+              "value": 2,
+              "units": "rem"
+            },
+            "left": {
+              "value": 2,
+              "units": "rem"
+            },
+            "right": {
+              "value": 2,
+              "units": "rem"
+            }
+          }
+        },
+        "visibility": {
+          "controlling_field": "b670fd47-fa9e-3bfd-eb7d-7f46aeb8d9bb",
+          "operator": "EQUAL",
+          "controlling_value_regex": "true"
+        }
+      },
+      {
+        "type": "color",
+        "id": "87488238-b68f-6aa8-2f15-b633ebada896",
+        "default": {
+          "color": "#edf7fe",
+          "opacity": 100
+        },
+        "label": "Card background color",
+        "name": "card_background_color",
+        "visibility": {
+          "controlling_field": "b670fd47-fa9e-3bfd-eb7d-7f46aeb8d9bb",
+          "operator": "EQUAL",
+          "controlling_value_regex": "true"
+        }
+      }
+    ],
+    "default": {
+      "timeline_width": 600,
+      "date_spacing": {
+        "margin": {
+          "top": {
+            "value": 1,
+            "units": "rem"
+          },
+          "bottom": {
+            "value": 1,
+            "units": "rem"
+          }
+        }
+      },
+      "use_card_layout": true,
+      "card_spacing": {
+        "padding": {
+          "top": {
+            "value": 2,
+            "units": "rem"
+          },
+          "bottom": {
+            "value": 2,
+            "units": "rem"
+          },
+          "left": {
+            "value": 2,
+            "units": "rem"
+          },
+          "right": {
+            "value": 2,
+            "units": "rem"
+          }
+        }
+      },
+      "card_background_color": {
+        "color": "#edf7fe",
+        "opacity": 100
+      }
+    }
+  }
+]
